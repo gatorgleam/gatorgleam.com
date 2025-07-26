@@ -1,0 +1,1080 @@
+---
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home – Gator Gleam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: #fff;
+        color: #1a1a1a;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      nav {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+      }
+      
+      .nav-logo {
+        height: 60px;
+        width: auto;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-logo:hover {
+        transform: scale(1.05);
+      }
+      .nav-logo-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-logo-link:hover {
+        transform: none;
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        list-style: none;
+        flex: 1;
+        margin: 0;
+      }
+      nav a {
+        text-decoration: none;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+        position: relative;
+      }
+      nav a:hover {
+        color: #ff69b4;
+        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+      }
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      nav a:hover::after {
+        width: 80%;
+      }
+      header {
+        background: linear-gradient(135deg, #ff69b4, #8a2be2);
+        padding: 8rem 2rem 6rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        animation: fadeIn 1.2s ease-out forwards;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 75vh;
+        overflow: hidden;
+      }
+      
+      /* Hero Title Styles */
+      .hero-title {
+        z-index: 2;
+        position: relative;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      
+      .brand-name {
+        font-size: 5rem;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #ffffff, #f0f0f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: slideUp 1s ease-out forwards;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        font-family: 'Montserrat', sans-serif;
+        font-style: italic;
+        letter-spacing: -1px;
+      }
+      
+      .brand-subtitle {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 0;
+        color: white;
+        opacity: 0;
+        animation: slideUp 1s ease-out 0.2s forwards;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+
+      /* Floating Icons */
+      header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+      
+      .floating-icons {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      .floating-icon {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.15);
+        font-size: 2.5rem;
+        z-index: 1;
+      }
+      
+      .floating-icon:nth-child(1) { animation: floatIcon1 8s infinite; left: 8%; top: 15%; }
+      .floating-icon:nth-child(2) { animation: floatIcon2 12s infinite; right: 12%; top: 12%; }
+      .floating-icon:nth-child(3) { animation: floatIcon3 10s infinite; left: 15%; bottom: 25%; }
+      .floating-icon:nth-child(4) { animation: floatIcon4 15s infinite; right: 15%; bottom: 30%; }
+      .floating-icon:nth-child(5) { animation: floatIcon5 11s infinite; left: 30%; top: 20%; }
+      .floating-icon:nth-child(6) { animation: floatIcon6 9s infinite; right: 30%; top: 25%; }
+      .floating-icon:nth-child(7) { animation: floatIcon1 13s infinite; left: 45%; bottom: 20%; }
+      .floating-icon:nth-child(8) { animation: floatIcon2 14s infinite; right: 45%; bottom: 15%; }
+      .floating-icon:nth-child(9) { animation: floatIcon3 16s infinite; left: 60%; top: 30%; }
+      .floating-icon:nth-child(10) { animation: floatIcon4 11s infinite; right: 55%; top: 18%; }
+      .logo {
+        max-width: 400px;
+        height: auto;
+        margin-bottom: 1rem;
+        z-index: 2;
+        filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.2));
+        animation: slideUp 1s ease-out forwards;
+        position: relative;
+      }
+      .logo-fallback {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        z-index: 2;
+        color: white;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        animation: slideUp 1s ease-out forwards;
+        position: relative;
+        font-weight: 700;
+      }
+      p.lead {
+        font-size: 1.75rem;
+        margin-top: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        animation: slideUp 1s ease-out 0.3s forwards;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        z-index: 2;
+        position: relative;
+      }
+      section {
+        padding: 5rem 2rem;
+        max-width: 1100px;
+        margin: auto;
+      }
+      h2 {
+        font-size: 2.25rem;
+        margin-bottom: 1.5rem;
+        color: #c27cbf;
+        text-align: center;
+      }
+      .intro {
+        text-align: center;
+      }
+      .intro p {
+        font-size: 1.35rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      .divider {
+        height: 80px;
+        background: linear-gradient(to bottom right, #fef9fc 50%, #fff);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+        margin-top: -80px;
+      }
+      .service-preview {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+      .service-box:nth-child(1) { animation-delay: 0.2s; }
+      .service-box:nth-child(2) { animation-delay: 0.4s; }
+      .service-box:nth-child(3) { animation-delay: 0.6s; }
+      .service-box:nth-child(4) { animation-delay: 0.8s; }
+      .service-box:nth-child(5) { animation-delay: 1.0s; }
+      .service-box:nth-child(6) { animation-delay: 1.2s; }
+      
+      .service-box {
+        background: white;
+        border-radius: 16px;
+        padding: 2.5rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align: left;
+        border: 1px solid rgba(0,0,0,0.05);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+        cursor: pointer;
+      }
+      .service-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      .service-box::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(255,105,180,0.1) 0%, rgba(138,43,226,0.1) 50%, transparent 70%);
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
+      }
+      .service-box:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+      }
+      .service-box:hover::before {
+        transform: scaleX(1);
+      }
+      .service-box:hover::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .service-box h3 {
+        font-size: 1.4rem;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .service-box h3::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 1.2rem;
+      }
+      .service-box:nth-child(1) h3::before {
+        content: "\f109" !important;  /* fa-laptop-code */
+      }
+      .service-box:nth-child(2) h3::before {
+        content: "\f292" !important;  /* fa-hashtag */  
+      }
+      .service-box:nth-child(3) h3::before {
+        content: "\f140" !important;  /* fa-bullseye */
+      }
+      .service-box:nth-child(4) h3::before {
+        content: "\f290" !important;  /* fa-shopping-bag */
+      }
+      .service-box:nth-child(5) h3::before {
+        content: "\f201" !important;  /* fa-chart-line */
+      }
+      .service-box:nth-child(6) h3::before {
+        content: "\f0e0" !important;  /* fa-envelope */
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes shimmer {
+        0% { background-position: 200% center; }
+        100% { background-position: -200% center; }
+      }
+      @keyframes glow {
+        from { text-shadow: 3px 3px 6px rgba(0,0,0,0.2); }
+        to { text-shadow: 3px 3px 15px rgba(255,255,255,0.5); }
+      }
+      @keyframes expandLine {
+        from {
+          width: 0;
+          opacity: 0;
+        }
+        to {
+          width: 100px;
+          opacity: 1;
+        }
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Tablet Styles */
+      @media (max-width: 1024px) and (min-width: 769px) {
+        .service-preview {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.8rem;
+        }
+      }
+      
+      /* Desktop Styles for Service Grid */
+      @media (min-width: 1025px) {
+        .service-preview {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.8rem;
+        }
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem;
+        }
+        
+        .nav-logo {
+          height: 35px;
+        }
+        
+        nav ul {
+          justify-content: center;
+          gap: 1.5rem;
+        }
+        
+        .logo {
+          max-height: 100px;
+          max-width: 320px;
+        }
+        
+        .logo-fallback {
+          font-size: 2.5rem;
+        }
+        
+        nav ul {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        
+        nav a {
+          font-size: 1rem;
+          padding: 0.5rem 0;
+        }
+        
+        header {
+          padding: 6rem 2rem 4rem;
+        }
+        
+        .lead {
+          font-size: 1.5rem;
+        }
+        
+        section {
+          padding: 4rem 2rem;
+        }
+        
+        h2 {
+          font-size: 2rem;
+        }
+        
+        /* Service Grid Mobile Responsive */
+        .service-preview {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        
+        .service-box {
+          padding: 2rem;
+        }
+        
+        .cta {
+          padding: 6rem 2rem;
+        }
+        
+        .cta h2 {
+          font-size: 2rem;
+        }
+        
+        .cta p {
+          font-size: 1.125rem;
+        }
+        
+        .cta-button {
+          padding: 0.75rem 2rem;
+          font-size: 1rem;
+        }
+      }
+
+      .nav-spacer {
+        width: 60px; /* Same as logo width to balance layout */
+      }
+      
+      nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        list-style: none;
+        flex: 1;
+        margin: 0;
+      }
+      nav a {
+        text-decoration: none;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+        position: relative;
+      }
+      nav a:hover {
+        color: #ff69b4;
+        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+      }
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      nav a:hover::after {
+        width: 80%;
+      }
+      header {
+        background: linear-gradient(135deg, #ff69b4, #8a2be2);
+        padding: 8rem 2rem 6rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        animation: fadeIn 1.2s ease-out forwards;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 75vh;
+        overflow: hidden;
+      }
+      
+      /* Hero Title Styles */
+      .hero-title {
+        z-index: 2;
+        position: relative;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      
+      .brand-name {
+        font-size: 5rem;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #ffffff, #f0f0f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: slideUp 1s ease-out forwards;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        font-family: 'Montserrat', sans-serif;
+        font-style: italic;
+        letter-spacing: -1px;
+      }
+      
+      .brand-subtitle {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 0;
+        color: white;
+        opacity: 0;
+        animation: slideUp 1s ease-out 0.2s forwards;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+
+      /* Floating Icons */
+      header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+      
+      .floating-icons {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      .floating-icon {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.15);
+        font-size: 2.5rem;
+        z-index: 1;
+      }
+      
+      .floating-icon:nth-child(1) { animation: floatIcon1 8s infinite; left: 8%; top: 15%; }
+      .floating-icon:nth-child(2) { animation: floatIcon2 12s infinite; right: 12%; top: 12%; }
+      .floating-icon:nth-child(3) { animation: floatIcon3 10s infinite; left: 15%; bottom: 25%; }
+      .floating-icon:nth-child(4) { animation: floatIcon4 15s infinite; right: 15%; bottom: 30%; }
+      .floating-icon:nth-child(5) { animation: floatIcon5 11s infinite; left: 30%; top: 20%; }
+      .floating-icon:nth-child(6) { animation: floatIcon6 9s infinite; right: 30%; top: 25%; }
+      .floating-icon:nth-child(7) { animation: floatIcon1 13s infinite; left: 45%; bottom: 20%; }
+      .floating-icon:nth-child(8) { animation: floatIcon2 14s infinite; right: 45%; bottom: 15%; }
+      .floating-icon:nth-child(9) { animation: floatIcon3 16s infinite; left: 60%; top: 30%; }
+      .floating-icon:nth-child(10) { animation: floatIcon4 11s infinite; right: 55%; top: 18%; }
+      .logo {
+        max-width: 400px;
+        height: auto;
+        margin-bottom: 1rem;
+        z-index: 2;
+        filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.2));
+        animation: slideUp 1s ease-out forwards;
+        position: relative;
+      }
+      .logo-fallback {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        z-index: 2;
+        color: white;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        animation: slideUp 1s ease-out forwards;
+        position: relative;
+        font-weight: 700;
+      }
+      p.lead {
+        font-size: 1.75rem;
+        margin-top: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        animation: slideUp 1s ease-out 0.3s forwards;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        z-index: 2;
+        position: relative;
+      }
+      section {
+        padding: 5rem 2rem;
+        max-width: 1100px;
+        margin: auto;
+      }
+      h2 {
+        font-size: 2.25rem;
+        margin-bottom: 1.5rem;
+        color: #c27cbf;
+        text-align: center;
+      }
+      .intro {
+        text-align: center;
+      }
+      .intro p {
+        font-size: 1.35rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      .divider {
+        height: 80px;
+        background: linear-gradient(to bottom right, #fef9fc 50%, #fff);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+        margin-top: -80px;
+      }
+      .service-preview {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+      .service-box:nth-child(1) { animation-delay: 0.2s; }
+      .service-box:nth-child(2) { animation-delay: 0.4s; }
+      .service-box:nth-child(3) { animation-delay: 0.6s; }
+      .service-box:nth-child(4) { animation-delay: 0.8s; }
+      .service-box:nth-child(5) { animation-delay: 1.0s; }
+      .service-box:nth-child(6) { animation-delay: 1.2s; }
+      
+      .service-box {
+        background: white;
+        border-radius: 16px;
+        padding: 2.5rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align: left;
+        border: 1px solid rgba(0,0,0,0.05);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+        cursor: pointer;
+      }
+      .service-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      .service-box::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(255,105,180,0.1) 0%, rgba(138,43,226,0.1) 50%, transparent 70%);
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
+      }
+      .service-box:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+      }
+      .service-box:hover::before {
+        transform: scaleX(1);
+      }
+      .service-box:hover::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .service-box h3 {
+        font-size: 1.4rem;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .service-box h3::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 1.2rem;
+      }
+      .service-box:nth-child(1) h3::before {
+        content: "\f109" !important;  /* fa-laptop-code */
+      }
+      .service-box:nth-child(2) h3::before {
+        content: "\f292" !important;  /* fa-hashtag */  
+      }
+      .service-box:nth-child(3) h3::before {
+        content: "\f140" !important;  /* fa-bullseye */
+      }
+      .service-box:nth-child(4) h3::before {
+        content: "\f290" !important;  /* fa-shopping-bag */
+      }
+      .service-box:nth-child(5) h3::before {
+        content: "\f201" !important;  /* fa-chart-line */
+      }
+      .service-box:nth-child(6) h3::before {
+        content: "\f0e0" !important;  /* fa-envelope */
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes shimmer {
+        0% { background-position: 200% center; }
+        100% { background-position: -200% center; }
+      }
+      @keyframes glow {
+        from { text-shadow: 3px 3px 6px rgba(0,0,0,0.2); }
+        to { text-shadow: 3px 3px 15px rgba(255,255,255,0.5); }
+      }
+      @keyframes expandLine {
+        from {
+          width: 0;
+          opacity: 0;
+        }
+        to {
+          width: 100px;
+          opacity: 1;
+        }
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Tablet Styles */
+      @media (max-width: 1024px) and (min-width: 769px) {
+        .service-preview {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.8rem;
+        }
+      }
+      
+      /* Desktop Styles for Service Grid */
+      @media (min-width: 1025px) {
+        .service-preview {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.8rem;
+        }
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem;
+        }
+        
+        .nav-logo {
+          height: 35px;
+        }
+        
+        nav ul {
+          justify-content: center;
+          gap: 1.5rem;
+        }
+        
+        .logo {
+          max-height: 100px;
+          max-width: 320px;
+        }
+        
+        .logo-fallback {
+          font-size: 2.5rem;
+        }
+        
+        nav ul {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        
+        nav a {
+          font-size: 1rem;
+          padding: 0.5rem 0;
+        }
+        
+        header {
+          padding: 6rem 2rem 4rem;
+        }
+        
+        .lead {
+          font-size: 1.5rem;
+        }
+        
+        section {
+          padding: 4rem 2rem;
+        }
+        
+        h2 {
+          font-size: 2rem;
+        }
+        
+        /* Service Grid Mobile Responsive */
+        .service-preview {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        
+        .service-box {
+          padding: 2rem;
+        }
+        
+        .cta {
+          padding: 6rem 2rem;
+        }
+        
+        .cta h2 {
+          font-size: 2rem;
+        }
+        
+        .cta p {
+          font-size: 1.125rem;
+        }
+        
+        .cta-button {
+          padding: 0.75rem 2rem;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="nav-logo-link">
+        <img src="/images/gator-gleam-logo.png" alt="Gator Gleam" class="nav-logo" />
+      </a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="nav-spacer"></div>
+    </nav>
+
+    <header>
+      <div class="floating-icons">
+        <i class="floating-icon fas fa-laptop-code"></i>
+        <i class="floating-icon fas fa-chart-line"></i>
+        <i class="floating-icon fas fa-hashtag"></i>
+        <i class="floating-icon fas fa-paint-brush"></i>
+        <i class="floating-icon fas fa-mobile-alt"></i>
+        <i class="floating-icon fas fa-bullhorn"></i>
+        <i class="floating-icon fas fa-search"></i>
+        <i class="floating-icon fas fa-comments"></i>
+        <i class="floating-icon fas fa-photo-video"></i>
+        <i class="floating-icon fas fa-rocket"></i>
+      </div>
+      <div class="hero-title">
+        <h1 class="brand-name">Gator Gleam</h1>
+        <h2 class="brand-subtitle">Digital Marketing Agency</h2>
+      </div>
+      <p class="lead">Helping bold, brilliant brands shine online with stunning websites, content, and digital products.</p>
+    </header>
+
+    <div class="divider"></div>
+
+    <section class="intro">
+      <h2>What We Do</h2>
+      <p>We specialize in custom website design, scroll-stopping social media, results-driven ads, and digital product development that helps brands grow and glow.</p>
+    </section>
+
+    <section class="services">
+      <h2>Our Services</h2>
+      <div class="service-preview">
+        <div class="service-box">
+          <h3>Website Design & Development</h3>
+          <p>Custom-crafted websites that combine stunning design with powerful functionality to create an impactful online presence.</p>
+        </div>
+        <div class="service-box">
+          <h3>Social Media Management</h3>
+          <p>Strategic social media management that builds engagement, grows your following, and strengthens your brand's voice.</p>
+        </div>
+        <div class="service-box">
+          <h3>Paid Advertising Campaigns</h3>
+          <p>Data-driven paid advertising strategies that target your ideal audience and maximize your ROI across all platforms.</p>
+        </div>
+        <div class="service-box">
+          <h3>Digital Product Strategy</h3>
+          <p>Comprehensive digital product planning and development to bring your ideas to life and create new revenue streams.</p>
+        </div>
+        <div class="service-box">
+          <h3>Analytics & Reporting</h3>
+          <p>In-depth analytics and clear reporting to track your success and inform data-driven decisions for continuous improvement.</p>
+        </div>
+        <div class="service-box">
+          <h3>Email Marketing</h3>
+          <p>Strategic email campaigns that nurture leads, boost engagement, and drive conversions through personalized communication.</p>
+        </div>
+      </div>
+    </section>        <section class="cta">
+      <h2>Ready to Transform Your Digital Presence?</h2>
+      <p>Let's create something amazing together.</p>
+      <a href="https://calendly.com/abbyjane-gatorgleamagency" target="_blank" rel="noopener noreferrer" class="cta-button">Schedule a Call</a>
+    </section>
+  </body>
+</html>
+
+<style>
+  .cta {
+    background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+    text-align: center;
+    padding: 8rem 2rem;
+    margin-top: -2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+    background-size: 200% 200%;
+    animation: shine 3s infinite;
+  }
+  .cta h2 {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  .cta p {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 2.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(to right, #ff69b4, #8a2be2);
+    background-size: 200% auto;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.4s forwards;
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    background-position: right center;
+  }
+  @keyframes shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  @keyframes floatIcon1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -20px) rotate(10deg); }
+  }
+  @keyframes floatIcon2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-15px, -25px) rotate(-5deg); }
+  }
+  @keyframes floatIcon3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(25px, -15px) rotate(15deg); }
+  }
+  @keyframes floatIcon4 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-20px, -20px) rotate(-15deg); }
+  }
+  @keyframes floatIcon5 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(15px, -30px) rotate(5deg); }
+  }
+  @keyframes floatIcon6 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-25px, -25px) rotate(-10deg); }
+  }
+</style>  <script>
+    // Navigation interactivity can be added here if needed
+  </script>

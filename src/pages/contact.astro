@@ -1,0 +1,544 @@
+---
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact – Gator Gleam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: #fff;
+        color: #1a1a1a;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      
+      /* Navigation */
+      nav {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+      }
+      
+      .nav-logo {
+        height: 60px;
+        width: auto;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-logo:hover {
+        transform: scale(1.05);
+      }
+      
+      .nav-logo-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-logo-link:hover {
+        transform: none;
+      }
+      
+      .nav-spacer {
+        width: 60px;
+      }
+      
+      nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        list-style: none;
+        flex: 1;
+        margin: 0;
+      }
+      
+      nav a {
+        text-decoration: none;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+        position: relative;
+      }
+      
+      nav a:hover {
+        color: #ff69b4;
+        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+      }
+      
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      
+      nav a:hover::after {
+        width: 80%;
+      }
+      
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #ff69b4, #8a2be2);
+        padding: 8rem 2rem 6rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        margin-bottom: 4rem;
+      }
+      
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(120deg, #fff 0%, #f0f0f0 30%, #fff 50%, #f0f0f0 70%, #fff 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        animation: slideUp 1s ease-out forwards;
+        position: relative;
+      }
+      
+      .hero p {
+        font-size: 1.5rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0;
+        animation: slideUp 1s ease-out 0.3s forwards;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      }
+      
+      /* Contact Section */
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      
+      .contact-grid {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 4rem;
+      }
+      
+      .contact-info {
+        max-width: 600px;
+        text-align: center;
+        opacity: 0;
+        animation: slideUp 0.8s ease-out 0.4s forwards;
+      }
+      
+      .contact-info h2 {
+        font-size: 2.5rem;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 2rem;
+      }
+      
+      .contact-info p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+      }
+      
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+      
+      .contact-method {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 3rem 2rem;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0,0,0,0.05);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .contact-method::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      
+      .contact-method::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(255,105,180,0.1) 0%, rgba(138,43,226,0.1) 50%, transparent 70%);
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
+      }
+      
+      .contact-method:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+      }
+      
+      .contact-method:hover::before {
+        transform: scaleX(1);
+      }
+      
+      .contact-method:hover::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      .contact-method i {
+        font-size: 3rem;
+        color: #ff69b4;
+        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      
+      .contact-method:hover i {
+        transform: scale(1.1);
+        color: #8a2be2;
+      }
+      
+      .contact-method-info {
+        z-index: 1;
+        position: relative;
+      }
+      
+      .contact-method-info h3 {
+        font-size: 1.4rem;
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+      
+      .contact-method-info p {
+        color: #666;
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+      
+      .contact-method a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      
+      .contact-method:hover a {
+        color: #ff69b4;
+      }
+      
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+        padding: 6rem 2rem;
+        text-align: center;
+        margin-top: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+        background-size: 200% 200%;
+        animation: shine 3s infinite;
+      }
+      
+      .cta-section h2 {
+        font-size: 2.5rem;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out 0.2s forwards;
+      }
+      
+      .cta-section p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out 0.4s forwards;
+      }
+      
+      .cta-button {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        background-size: 200% auto;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        background-position: right center;
+      }
+      
+      /* Animations */
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes shine {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem;
+        }
+        
+        .nav-logo {
+          height: 50px;
+        }
+        
+        .nav-spacer {
+          display: none;
+        }
+        
+        nav ul {
+          justify-content: center;
+          gap: 1.5rem;
+        }
+        
+        nav a {
+          font-size: 1rem;
+          padding: 0.5rem 0;
+        }
+        
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        
+        .hero p {
+          font-size: 1.2rem;
+        }
+        
+        .contact-methods {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        
+        .contact-method {
+          padding: 2.5rem 1.5rem;
+        }
+        
+        .contact-method i {
+          font-size: 2.5rem;
+          width: 70px;
+          height: 70px;
+        }
+        
+        nav ul {
+          gap: 1.5rem;
+        }
+        
+        nav a {
+          font-size: 1rem;
+          padding: 0.4rem 0.8rem;
+        }
+        
+        .cta-section h2 {
+          font-size: 2rem;
+        }
+        
+        .contact-info h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="/" class="nav-logo-link">
+        <img src="/images/gator-gleam-logo.png" alt="Gator Gleam" class="nav-logo" />
+      </a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="nav-spacer"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Let's Connect</h1>
+      <p>Ready to make your brand shine? I'd love to hear about your project and see how we can work together.</p>
+    </section>
+
+    <!-- Contact Content -->
+    <div class="contact-container">
+      <div class="contact-grid">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>Whether you're ready to start a new project, have questions about my services, or just want to say hello, I'm here to help. Choose the way that works best for you!</p>
+          
+          <div class="contact-methods">
+            <!-- Email -->
+            <div class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <div class="contact-method-info">
+                <h3>Email Me</h3>
+                <p><a href="mailto:abbyjane@gatorgleamagency.com">abbyjane@gatorgleamagency.com</a></p>
+              </div>
+            </div>
+            
+            <!-- Calendly -->
+            <div class="contact-method" onclick="window.open('https://calendly.com/abbyjane-gatorgleamagency', '_blank')">
+              <i class="fas fa-calendar-alt"></i>
+              <div class="contact-method-info">
+                <h3>Schedule a Call</h3>
+                <p><a href="https://calendly.com/abbyjane-gatorgleamagency" target="_blank" rel="noopener noreferrer">Book a free consultation</a></p>
+              </div>
+            </div>
+            
+            <!-- Instagram -->
+            <div class="contact-method" onclick="window.open('https://instagram.com/gatorgleam', '_blank')">
+              <i class="fab fa-instagram"></i>
+              <div class="contact-method-info">
+                <h3>Follow Me</h3>
+                <p><a href="https://instagram.com/gatorgleam" target="_blank" rel="noopener noreferrer">@gatorgleam</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2>Ready to Get Started?</h2>
+      <p>Let's schedule a free consultation to discuss your project and see how I can help your brand shine online.</p>
+      <a href="https://calendly.com/abbyjane-gatorgleamagency" target="_blank" rel="noopener noreferrer" class="cta-button">Book Your Call Now</a>
+    </section>
+
+    <script>
+      // Add enhanced interactivity to contact methods
+      document.querySelectorAll('.contact-method').forEach(method => {
+        const element = method as HTMLElement;
+        
+        element.addEventListener('mouseenter', () => {
+          element.style.transform = 'translateY(-8px) scale(1.03)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          element.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        // Add click animation
+        element.addEventListener('mousedown', () => {
+          element.style.transform = 'translateY(-6px) scale(1.01)';
+        });
+        
+        element.addEventListener('mouseup', () => {
+          element.style.transform = 'translateY(-8px) scale(1.03)';
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+.service-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.intro-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ff69b4, #8a2be2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro-section p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.features-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, rgba(255,105,180,0.05), rgba(138,43,226,0.05));
+  border-radius: 20px;
+  margin: 2rem 0;
+}
+
+.features-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ff69b4, #8a2be2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255,105,180,0.15);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ff69b4, #8a2be2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.process-section {
+  padding: 4rem 0;
+}
+
+.process-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ff69b4, #8a2be2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.process-step {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff69b4, #8a2be2);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 1.5rem;
+}
+
+.process-step h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.process-step p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.benefits-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, rgba(255,105,180,0.05), rgba(138,43,226,0.05));
+  border-radius: 20px;
+  margin: 2rem 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.portfolio-section {
+  padding: 4rem 0;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .intro-section h2 {
+    font-size: 2rem;
+  }
+  
+  .features-section h2,
+  .process-section h2,
+  .benefits-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .feature-card,
+  .process-step {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,321 @@
+---
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Email Marketing – Gator Gleam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+      /* Base styles from template */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: #fff;
+        color: #1a1a1a;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      nav {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1.2rem 2rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        list-style: none;
+      }
+      nav a {
+        text-decoration: none;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+      }
+      nav a:hover {
+        color: #ff69b4;
+        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+      }
+      
+      .service-header {
+        background: linear-gradient(135deg, #ff69b4, #8a2be2);
+        padding: 8rem 2rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      }
+      .service-header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        animation: slideUp 1s ease-out forwards;
+      }
+      .service-icon {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        animation: fadeIn 1s ease-out;
+      }
+      .service-content {
+        max-width: 1000px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+      }
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+      .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      }
+      .feature-card h3 {
+        color: #ff69b4;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      .feature-card p {
+        color: #666;
+      }
+      .campaign-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+      .campaign-card {
+        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+      }
+      .campaign-icon {
+        font-size: 2.5rem;
+        color: #ff69b4;
+        margin-bottom: 1rem;
+      }
+      .process-section {
+        margin: 5rem 0;
+      }
+      .process-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      .process-step:nth-child(1) { animation-delay: 0.2s; }
+      .process-step:nth-child(2) { animation-delay: 0.4s; }
+      .process-step:nth-child(3) { animation-delay: 0.6s; }
+      .process-step:nth-child(4) { animation-delay: 0.8s; }
+      
+      .step-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ff69b4;
+        margin-right: 2rem;
+        min-width: 40px;
+      }
+      .step-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+      .step-content p {
+        color: #666;
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="service-header">
+      <div class="service-icon">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <h1>Email Marketing</h1>
+      <p>Connect with your audience through powerful email campaigns</p>
+    </div>
+
+    <div class="service-content">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Campaign Strategy</h3>
+          <p>Strategic planning and execution of email campaigns that drive results.</p>
+        </div>
+        <div class="feature-card">
+          <h3>List Management</h3>
+          <p>Build and maintain quality email lists with effective segmentation.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Design & Content</h3>
+          <p>Eye-catching templates and compelling content that converts.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Automation</h3>
+          <p>Streamlined workflows and triggered emails for timely engagement.</p>
+        </div>
+      </div>
+
+      <div class="campaign-types">
+        <div class="campaign-card">
+          <div class="campaign-icon">
+            <i class="fas fa-hand-sparkles"></i>
+          </div>
+          <h3>Welcome Series</h3>
+          <p>Engage new subscribers with targeted onboarding sequences</p>
+        </div>
+        <div class="campaign-card">
+          <div class="campaign-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <h3>Promotional</h3>
+          <p>Drive sales with compelling offers and product highlights</p>
+        </div>
+        <div class="campaign-card">
+          <div class="campaign-icon">
+            <i class="fas fa-sync"></i>
+          </div>
+          <h3>Nurture</h3>
+          <p>Build relationships with valuable content and updates</p>
+        </div>
+        <div class="campaign-card">
+          <div class="campaign-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Re-engagement</h3>
+          <p>Win back inactive subscribers with targeted campaigns</p>
+        </div>
+      </div>
+
+      <div class="process-section">
+        <h2>Our Email Marketing Process</h2>
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Strategy Development</h3>
+            <p>Creating a customized email marketing plan aligned with your goals.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>List Building & Segmentation</h3>
+            <p>Growing and organizing your email list for targeted messaging.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Content Creation</h3>
+            <p>Designing engaging emails with compelling copy and visuals.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Testing & Optimization</h3>
+            <p>Continuously improving performance through A/B testing and analytics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="cta">
+      <h2>Ready to Transform Your Email Marketing?</h2>
+      <p>Let's create engaging campaigns that drive results.</p>
+      <a href="https://calendly.com/abbyjane-gatorgleamagency" target="_blank" rel="noopener noreferrer" class="cta-button">Schedule a Call</a>
+    </section>
+  </body>
+</html>
+
+<style>
+  .cta {
+    background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+    text-align: center;
+    padding: 8rem 2rem;
+    margin-top: 2rem;
+  }
+  .cta h2 {
+    font-size: 2.5rem;
+    color: #c27cbf;
+    margin-bottom: 1.5rem;
+  }
+  .cta p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #666;
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(to right, #ff69b4, #8a2be2);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+</style>
