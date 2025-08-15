@@ -1,324 +1,75 @@
 ---
-layout: null
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const frontmatter = {
+  title: 'Analytics & Data Insights',
+  description:
+    'Data-driven insights to optimize your digital strategy and maximize your return on investment.',
+  icon: 'fas fa-chart-line',
+};
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Analytics & Reporting – Gator Gleam</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-      /* Base styles from template */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: 'Montserrat', sans-serif;
-        background: #fff;
-        color: #1a1a1a;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-      nav {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 1.2rem 2rem;
-        text-align: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        backdrop-filter: blur(8px);
-      }
-      nav ul {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        list-style: none;
-      }
-      nav a {
-        text-decoration: none;
-        color: #1a1a1a;
-        font-weight: 600;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        padding: 0.5rem 1rem;
-        border-radius: 30px;
-      }
-      nav a:hover {
-        color: #ff69b4;
-        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
-      }
-      
-      .service-header {
-        background: linear-gradient(135deg, #ff69b4, #8a2be2);
-        padding: 8rem 2rem;
-        text-align: center;
-        color: white;
-        position: relative;
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      }
-      .service-header h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-        animation: slideUp 1s ease-out forwards;
-      }
-      .service-icon {
-        font-size: 4rem;
-        margin-bottom: 2rem;
-        animation: fadeIn 1s ease-out;
-      }
-      .service-content {
-        max-width: 1000px;
-        margin: 4rem auto;
-        padding: 0 2rem;
-      }
-      .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-      .feature-card {
-        background: white;
-        padding: 2rem;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-      }
-      .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-      }
-      .feature-card h3 {
-        color: #ff69b4;
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
-      }
-      .feature-card p {
-        color: #666;
-      }
-      .metrics-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-      .metric-card {
-        padding: 2rem;
-        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
-        border-radius: 16px;
-        text-align: center;
-      }
-      .metric-icon {
-        font-size: 2.5rem;
-        color: #ff69b4;
-        margin-bottom: 1rem;
-      }
-      .process-section {
-        margin: 5rem 0;
-      }
-      .process-step {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 3rem;
-        opacity: 0;
-        animation: fadeInUp 0.6s ease-out forwards;
-      }
-      .process-step:nth-child(1) { animation-delay: 0.2s; }
-      .process-step:nth-child(2) { animation-delay: 0.4s; }
-      .process-step:nth-child(3) { animation-delay: 0.6s; }
-      .process-step:nth-child(4) { animation-delay: 0.8s; }
-      
-      .step-number {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #ff69b4;
-        margin-right: 2rem;
-        min-width: 40px;
-      }
-      .step-content h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: #333;
-      }
-      .step-content p {
-        color: #666;
-      }
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/resources">Resources</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
+<ServiceLayout frontmatter={frontmatter}>
+  <div class="service-content">
+    <h2>Transform Data into Actionable Insights</h2>
+    <p>
+      At Gator Gleam, we believe data is the foundation of every successful digital marketing
+      strategy. Our comprehensive analytics and reporting services help you understand your
+      audience, track performance, and make informed decisions that drive real business growth.
+    </p>
 
-    <div class="service-header">
-      <div class="service-icon">
-        <i class="fas fa-chart-line"></i>
-      </div>
-      <h1>Analytics & Reporting</h1>
-      <p>Transform data into actionable insights for your business</p>
-    </div>
-
-    <div class="service-content">
-      <div class="feature-grid">
+    <div class="features-section">
+      <h2>Our Analytics Services</h2>
+      <div class="features-grid">
         <div class="feature-card">
-          <h3>Data Analysis</h3>
-          <p>Deep dive into your metrics to uncover meaningful patterns and opportunities.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Custom Reporting</h3>
-          <p>Tailored reports that focus on the metrics that matter most to your business.</p>
-        </div>
-        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
           <h3>Performance Tracking</h3>
-          <p>Real-time monitoring of your key performance indicators and goals.</p>
+          <p>
+            Monitor key metrics across all your digital channels with custom dashboards and real-time
+            reporting.
+          </p>
         </div>
+
         <div class="feature-card">
-          <h3>Growth Insights</h3>
-          <p>Strategic recommendations based on data-driven insights.</p>
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Audience Analysis</h3>
+          <p>
+            Deep insights into your customer behavior, demographics, and preferences to optimize
+            targeting.
+          </p>
         </div>
-      </div>
 
-      <div class="metrics-section">
-        <h2>Key Metrics We Track</h2>
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="metric-icon">
-              <i class="fas fa-users"></i>
-            </div>
-            <h3>User Engagement</h3>
-            <p>Traffic, session duration, and user behavior</p>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bullseye"></i>
           </div>
-          <div class="metric-card">
-            <div class="metric-icon">
-              <i class="fas fa-shopping-cart"></i>
-            </div>
-            <h3>Conversions</h3>
-            <p>Sales, leads, and conversion rates</p>
-          </div>
-          <div class="metric-card">
-            <div class="metric-icon">
-              <i class="fas fa-bullhorn"></i>
-            </div>
-            <h3>Marketing ROI</h3>
-            <p>Campaign performance and return on investment</p>
-          </div>
-          <div class="metric-card">
-            <div class="metric-icon">
-              <i class="fas fa-search"></i>
-            </div>
-            <h3>SEO Performance</h3>
-            <p>Rankings, traffic, and visibility</p>
-          </div>
+          <h3>ROI Optimization</h3>
+          <p>
+            Track return on investment and identify the most profitable marketing channels and
+            campaigns.
+          </p>
         </div>
-      </div>
 
-      <div class="process-section">
-        <h2>Our Analytics Process</h2>
-        <div class="process-step">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Data Collection</h3>
-            <p>Setting up comprehensive tracking and gathering relevant data points.</p>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
           </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Analysis</h3>
-            <p>Processing data to identify trends, patterns, and opportunities.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Reporting</h3>
-            <p>Creating clear, actionable reports with key insights.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Optimization</h3>
-            <p>Implementing data-driven improvements and tracking results.</p>
-          </div>
+          <h3>Advanced Reporting</h3>
+          <p>
+            Comprehensive reports with actionable insights to guide your strategic decisions and growth.
+          </p>
         </div>
       </div>
     </div>
 
-    <section class="cta">
-      <h2>Ready to Make Data-Driven Decisions?</h2>
-      <p>Let's unlock the power of your data.</p>
-      <a href="https://calendly.com/abbyjane-gatorgleamagency" target="_blank" rel="noopener noreferrer" class="cta-button">Schedule a Call</a>
-    </section>
-  </body>
-</html>
-
-<style>
-  .cta {
-    background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
-    text-align: center;
-    padding: 8rem 2rem;
-    margin-top: 2rem;
-  }
-  .cta h2 {
-    font-size: 2.5rem;
-    color: #c27cbf;
-    margin-bottom: 1.5rem;
-  }
-  .cta p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    color: #666;
-  }
-  .cta-button {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: linear-gradient(to right, #ff69b4, #8a2be2);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  }
-</style>
+    <div class="cta-section">
+      <h3>Ready to unlock the power of your data?</h3>
+      <p>Let's turn your analytics into actionable insights that drive growth.</p>
+      <a href="/contact" class="cta-button">Get Data Insights</a>
+    </div>
+  </div>
+</ServiceLayout>

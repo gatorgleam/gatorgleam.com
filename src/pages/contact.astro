@@ -1,78 +1,71 @@
 ---
-layout: null
+import Navigation from '../components/Navigation.astro';
+import '../styles/shared.css';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Contact – Gator Gleam</title>
+    <meta name="description" content="Get in touch with Gator Gleam for digital marketing services. Contact us for web design, social media management, and marketing strategy consultation." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
-      
+
       body {
         font-family: 'Montserrat', sans-serif;
         background: #fff;
         color: #1a1a1a;
         line-height: 1.6;
         overflow-x: hidden;
+        /* Padding-top will be set dynamically by navigation-spacing script */
       }
-      
-      /* Navigation */
-      nav {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 1rem 2rem;
+
+      .nav-logo-link {
+        text-decoration: none;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        backdrop-filter: blur(8px);
+        position: absolute;
+        left: 0;
+        z-index: 11;
       }
-      
+
       .nav-logo {
         height: 60px;
         width: auto;
         transition: transform 0.3s ease;
       }
-      
+
       .nav-logo:hover {
         transform: scale(1.05);
       }
-      
-      .nav-logo-link {
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-      }
-      
+
       .nav-logo-link:hover {
         transform: none;
       }
-      
-      .nav-spacer {
-        width: 60px;
-      }
-      
+
       nav ul {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 3rem;
         list-style: none;
-        flex: 1;
         margin: 0;
       }
-      
+
       nav a {
         text-decoration: none;
         color: #1a1a1a;
@@ -83,12 +76,12 @@ layout: null
         border-radius: 30px;
         position: relative;
       }
-      
+
       nav a:hover {
-        color: #ff69b4;
-        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
+        color: #007BFF;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
       }
-      
+
       nav a::after {
         content: '';
         position: absolute;
@@ -96,108 +89,177 @@ layout: null
         left: 50%;
         width: 0;
         height: 2px;
-        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        background: linear-gradient(to right, #007BFF, #0056b3);
         transition: all 0.3s ease;
         transform: translateX(-50%);
       }
-      
+
       nav a:hover::after {
         width: 80%;
       }
-      
+
       /* Hero Section */
       .hero {
-        background: linear-gradient(135deg, #ff69b4, #8a2be2);
+        background: linear-gradient(135deg, #007BFF, #0056b3);
         padding: 8rem 2rem 6rem;
         text-align: center;
         color: white;
         position: relative;
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         margin-bottom: 4rem;
+        overflow: hidden;
       }
-      
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.3;
+        animation: float 20s ease-in-out infinite;
+      }
+
+      .hero .floating-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .hero .floating-shhape {
+        position: absolute;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        border-radius: 50%;
+      }
+
+      .hero .floating-shape:nth-child(1) {
+        width: 100px;
+        height: 100px;
+        top: 15%;
+        right: 10%;
+        animation: floatCircle1 12s ease-in-out infinite;
+      }
+
+      .hero .floating-shape:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        bottom: 20%;
+        left: 15%;
+        animation: floatCircle2 18s ease-in-out infinite;
+      }
+
+      .hero .floating-shape:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        top: 50%;
+        right: 20%;
+        animation: floatCircle3 20s ease-in-out infinite reverse;
+      }
+
       .hero h1 {
-        font-size: 4rem;
+        /* Font size handled by shared.css */
         margin-bottom: 1rem;
-        background: linear-gradient(120deg, #fff 0%, #f0f0f0 30%, #fff 50%, #f0f0f0 70%, #fff 100%);
-        background-size: 200% auto;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fff 0%, #ffd700 25%, #fff 50%, #ffd700 75%, #fff 100%);
+        background-size: 300% 300%;
         -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         background-clip: text;
-        color: transparent;
-        text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
-        animation: slideUp 1s ease-out forwards;
+        animation: shimmer 3s ease-in-out infinite;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         position: relative;
+        z-index: 2;
+        text-transform: uppercase;
+        letter-spacing: -1px;
       }
-      
+
       .hero p {
-        font-size: 1.5rem;
-        max-width: 600px;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        max-width: 700px;
         margin: 0 auto;
-        opacity: 0;
-        animation: slideUp 1s ease-out 0.3s forwards;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 2;
+        font-weight: 400;
       }
-      
-      /* Contact Section */
+
+      /* Main Content */
       .contact-container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
-      }
-      
-      .contact-grid {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 4rem;
-      }
-      
-      .contact-info {
-        max-width: 600px;
-        text-align: center;
-        opacity: 0;
-        animation: slideUp 0.8s ease-out 0.4s forwards;
-      }
-      
-      .contact-info h2 {
-        font-size: 2.5rem;
-        background: linear-gradient(to right, #ff69b4, #8a2be2);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        margin-bottom: 2rem;
-      }
-      
-      .contact-info p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 2rem;
-        line-height: 1.7;
-      }
-      
-      .contact-methods {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-      
-      .contact-method {
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+
+      .contact-grid {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 6rem;
+        width: 100%;
+      }
+
+      /* Contact Info */
+      .contact-info-section {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 600px;
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
         text-align: center;
+      }
+
+      .contact-info-section h2 {
+        /* Font size handled by shared.css */
+        background: linear-gradient(to right, #007BFF, #0056b3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .contact-info-section p {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .contact-methods {
+        display: flex;
+        flex-direction: column;
         gap: 1.5rem;
-        padding: 3rem 2rem;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem;
         background: white;
         border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(0,0,0,0.05);
+        border: 1px solid rgba(0, 0, 0, 0.05);
         cursor: pointer;
         position: relative;
         overflow: hidden;
+        text-decoration: none;
+        color: inherit;
       }
-      
+
       .contact-method::before {
         content: '';
         position: absolute;
@@ -205,12 +267,12 @@ layout: null
         left: 0;
         width: 100%;
         height: 4px;
-        background: linear-gradient(to right, #ff69b4, #8a2be2);
+        background: linear-gradient(to right, #007BFF, #0056b3);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.3s ease;
       }
-      
+
       .contact-method::after {
         content: '';
         position: absolute;
@@ -218,31 +280,36 @@ layout: null
         left: 50%;
         width: 120%;
         height: 120%;
-        background: radial-gradient(circle, rgba(255,105,180,0.1) 0%, rgba(138,43,226,0.1) 50%, transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(0, 123, 255, 0.1) 0%,
+          rgba(0, 86, 179, 0.1) 50%,
+          transparent 70%
+        );
         transform: translate(-50%, -50%) scale(0);
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 0;
       }
-      
+
       .contact-method:hover {
-        transform: translateY(-8px) scale(1.03);
-        box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
       }
-      
+
       .contact-method:hover::before {
         transform: scaleX(1);
       }
-      
+
       .contact-method:hover::after {
         transform: translate(-50%, -50%) scale(1);
       }
-      
+
       .contact-method i {
-        font-size: 3rem;
-        color: #ff69b4;
-        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
-        width: 80px;
-        height: 80px;
+        font-size: 2.5rem;
+        color: #007BFF;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -250,52 +317,213 @@ layout: null
         z-index: 1;
         position: relative;
         transition: all 0.3s ease;
+        flex-shrink: 0;
       }
-      
+
       .contact-method:hover i {
-        transform: scale(1.1);
-        color: #8a2be2;
+        transform: scale(1.1) rotate(5deg);
+        color: #0056b3;
       }
-      
+
       .contact-method-info {
         z-index: 1;
         position: relative;
+        flex: 1;
       }
-      
+
       .contact-method-info h3 {
-        font-size: 1.4rem;
+        /* Font size handled by shared.css */
         color: #1a1a1a;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.3rem;
         font-weight: 700;
+        transition: color 0.3s ease;
       }
-      
+
+      .contact-method:hover .contact-method-info h3 {
+        color: #007BFF;
+      }
+
       .contact-method-info p {
         color: #666;
         margin: 0;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 500;
-      }
-      
-      .contact-method a {
-        color: inherit;
-        text-decoration: none;
         transition: color 0.3s ease;
       }
-      
-      .contact-method:hover a {
-        color: #ff69b4;
+
+      .contact-method:hover .contact-method-info p {
+        color: #333;
       }
-      
-      /* CTA Section */
-      .cta-section {
-        background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(138,43,226,0.1));
-        padding: 6rem 2rem;
-        text-align: center;
-        margin-top: 4rem;
+
+      /* Testimonial Section */
+      .testimonial-section {
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.03), rgba(0, 86, 179, 0.03));
+        padding: 4rem 2rem;
+        margin: 4rem 0;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .testimonial-card {
+        max-width: 800px;
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
         position: relative;
         overflow: hidden;
+        animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        opacity: 0;
       }
-      
+
+      .testimonial-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, #007BFF, #0056b3);
+      }
+
+      .quote-icon {
+        font-size: 3rem;
+        color: #007BFF;
+        opacity: 0.3;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-content blockquote {
+        font-size: 1.3rem;
+        line-height: 1.7;
+        color: #333;
+        margin-bottom: 2rem;
+        font-style: italic;
+        position: relative;
+      }
+
+      .testimonial-author {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid #eee;
+      }
+
+      .author-info h4 {
+        /* Font size handled by shared.css */
+        color: #1a1a1a;
+        margin-bottom: 0.2rem;
+        font-weight: 700;
+      }
+
+      .author-info p {
+        color: #666;
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .rating {
+        display: flex;
+        gap: 0.3rem;
+      }
+
+      .rating i {
+        color: #ffd700;
+        font-size: 1.2rem;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(0, 86, 179, 0.05));
+        padding: 4rem 2rem;
+        margin: 4rem 0;
+        border-radius: 20px;
+        width: 100%;
+      }
+
+      .faq-section h2 {
+        /* Font size handled by shared.css */
+        background: linear-gradient(to right, #007BFF, #0056b3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-weight: 800;
+      }
+
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .faq-question {
+        padding: 1.5rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+      }
+
+      .faq-question:hover {
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(0, 86, 179, 0.05));
+        color: #007BFF;
+      }
+
+      .faq-question i {
+        transition: transform 0.3s ease;
+        color: #007BFF;
+      }
+
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        padding: 0 2rem 1.5rem;
+        color: #666;
+        line-height: 1.7;
+        display: none;
+      }
+
+      .faq-item.active .faq-answer {
+        display: block;
+        animation: fadeInUp 0.3s ease-out;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, #007BFF, #0056b3);
+        padding: 6rem 2rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        margin-top: 4rem;
+      }
+
       .cta-section::before {
         content: '';
         position: absolute;
@@ -303,68 +531,70 @@ layout: null
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+        background: linear-gradient(
+          45deg,
+          transparent 45%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 55%
+        );
         background-size: 200% 200%;
         animation: shine 3s infinite;
       }
-      
+
       .cta-section h2 {
-        font-size: 2.5rem;
-        background: linear-gradient(to right, #ff69b4, #8a2be2);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        /* Font size handled by shared.css */
         margin-bottom: 1.5rem;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        font-weight: 800;
+        position: relative;
+        z-index: 2;
       }
-      
+
       .cta-section p {
         font-size: 1.2rem;
-        color: #666;
         margin-bottom: 2.5rem;
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        position: relative;
+        z-index: 2;
       }
-      
+
       .cta-button {
         display: inline-block;
         padding: 1.2rem 3rem;
-        background: linear-gradient(to right, #ff69b4, #8a2be2);
-        background-size: 200% auto;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
         color: white;
         text-decoration: none;
         border-radius: 50px;
         font-weight: 600;
         font-size: 1.1rem;
         transition: all 0.3s ease;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out 0.6s forwards;
         text-transform: uppercase;
         letter-spacing: 1px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        z-index: 2;
       }
-      
+
       .cta-button:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        background-position: right center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
       }
-      
+
       /* Animations */
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
+      @keyframes shimmer {
+        0%,
+        100% {
+          background-position: 0% 50%;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        50% {
+          background-position: 100% 50%;
         }
       }
-      
+
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -375,12 +605,78 @@ layout: null
           transform: translateY(0);
         }
       }
-      
+
       @keyframes shine {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
       }
-      
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+      }
+
+      @keyframes floatCircle1 {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(30px, -20px) scale(1.1);
+        }
+      }
+
+      @keyframes floatCircle2 {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(-20px, 15px) scale(0.9);
+        }
+      }
+
+      @keyframes floatCircle3 {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(25px, -25px) scale(1.2);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
       /* Mobile Responsive */
       @media (max-width: 768px) {
         nav {
@@ -388,122 +684,278 @@ layout: null
           gap: 1rem;
           padding: 1rem;
         }
-        
+
+        .nav-container {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-logo-link {
+          position: static;
+          margin-bottom: 0.5rem;
+        }
+
         .nav-logo {
-          height: 50px;
+          height: 35px;
         }
-        
-        .nav-spacer {
-          display: none;
-        }
-        
+
         nav ul {
           justify-content: center;
           gap: 1.5rem;
         }
-        
+
         nav a {
-          font-size: 1rem;
-          padding: 0.5rem 0;
-        }
-        
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-        
-        .hero p {
-          font-size: 1.2rem;
-        }
-        
-        .contact-methods {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-        
-        .contact-method {
-          padding: 2.5rem 1.5rem;
-        }
-        
-        .contact-method i {
-          font-size: 2.5rem;
-          width: 70px;
-          height: 70px;
-        }
-        
-        nav ul {
-          gap: 1.5rem;
-        }
-        
-        nav a {
-          font-size: 1rem;
+          font-size: 0.9rem;
           padding: 0.4rem 0.8rem;
         }
-        
-        .cta-section h2 {
+
+        .hero {
+          padding: 6rem 1.5rem 4rem;
+        }
+
+        .contact-container {
+          padding: 0 1.5rem;
+        }
+
+        .contact-info-section {
+          padding: 2rem;
+        }
+
+        .contact-method {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+          padding: 2rem 1.5rem;
+        }
+
+        .contact-method i {
+          width: 60px;
+          height: 60px;
           font-size: 2rem;
         }
-        
-        .contact-info h2 {
-          font-size: 2rem;
+
+        .faq-section {
+          padding: 3rem 1.5rem;
+        }
+
+        .faq-question {
+          padding: 1.2rem 1.5rem;
+          font-size: 1rem;
+        }
+
+        .faq-answer {
+          padding: 0 1.5rem 1.2rem;
+        }
+
+        .cta-section {
+          padding: 4rem 1.5rem;
+        }
+
+        .testimonial-section {
+          padding: 3rem 1.5rem;
+        }
+
+        .testimonial-card {
+          padding: 2rem;
+        }
+
+        .testimonial-content blockquote {
+          font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .quote-icon {
+          font-size: 2.5rem;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav>
-      <a href="/" class="nav-logo-link">
-        <img src="/images/gator-gleam-logo.png" alt="Gator Gleam" class="nav-logo" />
-      </a>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-      <div class="nav-spacer"></div>
-    </nav>
+    <Navigation />
 
     <!-- Hero Section -->
     <section class="hero">
-      <h1>Let's Connect</h1>
-      <p>Ready to make your brand shine? I'd love to hear about your project and see how we can work together.</p>
+      <div class="floating-shapes">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+      </div>
+      <h1>Let's Make Magic</h1>
+      <p>
+        Ready to transform your digital presence? I'm here to help your brand shine brighter than
+        ever before. Let's start the conversation!
+      </p>
     </section>
 
-    <!-- Contact Content -->
+    <!-- Main Content -->
     <div class="contact-container">
       <div class="contact-grid">
-        <!-- Contact Information -->
-        <div class="contact-info">
+        <!-- Contact Info -->
+        <div class="contact-info-section">
           <h2>Get in Touch</h2>
-          <p>Whether you're ready to start a new project, have questions about my services, or just want to say hello, I'm here to help. Choose the way that works best for you!</p>
-          
+          <p>
+            Choose the way that works best for you! Whether you prefer email, want to schedule a
+            call, or just want to connect on social media, I'm here and ready to help.
+          </p>
+
           <div class="contact-methods">
-            <!-- Email -->
-            <div class="contact-method">
+            <a href="mailto:abbyjane@gatorgleamagency.com" class="contact-method">
               <i class="fas fa-envelope"></i>
               <div class="contact-method-info">
-                <h3>Email Me</h3>
-                <p><a href="mailto:abbyjane@gatorgleamagency.com">abbyjane@gatorgleamagency.com</a></p>
+                <h3>Email Me Directly</h3>
+                <p>abbyjane@gatorgleamagency.com</p>
               </div>
-            </div>
-            
-            <!-- Calendly -->
-            <div class="contact-method" onclick="window.open('https://calendly.com/abbyjane-gatorgleamagency', '_blank')">
+            </a>
+
+            <a
+              href="https://calendly.com/abbyjane-gatorgleamagency"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-method"
+            >
               <i class="fas fa-calendar-alt"></i>
               <div class="contact-method-info">
-                <h3>Schedule a Call</h3>
-                <p><a href="https://calendly.com/abbyjane-gatorgleamagency" target="_blank" rel="noopener noreferrer">Book a free consultation</a></p>
+                <h3>Schedule a Free Call</h3>
+                <p>Book a 30-minute consultation</p>
               </div>
-            </div>
-            
-            <!-- Instagram -->
-            <div class="contact-method" onclick="window.open('https://instagram.com/gatorgleam', '_blank')">
+            </a>
+
+            <a
+              href="https://instagram.com/gatorgleam"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-method"
+            >
               <i class="fab fa-instagram"></i>
               <div class="contact-method-info">
-                <h3>Follow Me</h3>
-                <p><a href="https://instagram.com/gatorgleam" target="_blank" rel="noopener noreferrer">@gatorgleam</a></p>
+                <h3>Follow on Instagram</h3>
+                <p>@gatorgleam</p>
               </div>
+            </a>
+
+            <a
+              href="https://linkedin.com/company/gatorgleam"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-method"
+            >
+              <i class="fab fa-linkedin"></i>
+              <div class="contact-method-info">
+                <h3>Connect on LinkedIn</h3>
+                <p>Professional networking</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Section -->
+      <div class="testimonial-section">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <blockquote>
+              "Working with Abby was an absolute game-changer for our business. She didn't just
+              redesign our website - she transformed our entire digital presence. Our leads
+              increased by 300% in the first month alone!"
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Sarah Mitchell</h4>
+                <p>CEO, TechStart Solutions</p>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-label="How quickly can you start my project?">
+              How quickly can you start my project?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                I typically have a 1-2 week lead time for new projects, but I can often accommodate
+                urgent requests. During our initial consultation, we'll discuss your timeline and
+                find the best way to meet your needs.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              aria-label="What information should I prepare before our call?"
+            >
+              What information should I prepare before our call?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Come prepared with your project goals, target audience, budget range, timeline, and
+                any existing brand materials. If you have examples of designs or competitors you
+                admire, that's helpful too!
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-label="Do you work with businesses of all sizes?">
+              Do you work with businesses of all sizes?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Absolutely! I work with everyone from solo entrepreneurs and startups to established
+                businesses and nonprofits. Every brand deserves to shine, regardless of size.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-label="What's included in your services?">
+              What's included in your services?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Each project is customized to your needs. I offer web design & development, social
+                media marketing, analytics, paid advertising, email marketing, and digital product
+                creation. We'll discuss exactly what you need during our consultation.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-label="How do you handle revisions and feedback?">
+              How do you handle revisions and feedback?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                I believe in collaboration! Each project includes multiple rounds of revisions, and
+                I work closely with you throughout the process to ensure the final result exceeds
+                your expectations.
+              </p>
             </div>
           </div>
         </div>
@@ -513,30 +965,49 @@ layout: null
     <!-- CTA Section -->
     <section class="cta-section">
       <h2>Ready to Get Started?</h2>
-      <p>Let's schedule a free consultation to discuss your project and see how I can help your brand shine online.</p>
-      <a href="https://calendly.com/abbyjane-gatorgleamagency" target="_blank" rel="noopener noreferrer" class="cta-button">Book Your Call Now</a>
+      <p>
+        Don't wait to make your brand shine. Let's schedule a free consultation and discuss how I
+        can help you achieve your digital marketing goals.
+      </p>
+      <a
+        href="https://calendly.com/abbyjane-gatorgleamagency"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-button">Book Your Free Call</a
+      >
     </section>
 
     <script>
-      // Add enhanced interactivity to contact methods
-      document.querySelectorAll('.contact-method').forEach(method => {
-        const element = method as HTMLElement;
-        
-        element.addEventListener('mouseenter', () => {
-          element.style.transform = 'translateY(-8px) scale(1.03)';
+      // FAQ Toggle Functionality
+      document.querySelectorAll('.faq-question').forEach((button) => {
+        button.addEventListener('click', () => {
+          const faqItem = button.parentElement;
+          const isActive = faqItem?.classList.contains('active');
+
+          // Close all FAQ items
+          document.querySelectorAll('.faq-item').forEach((item) => {
+            item.classList.remove('active');
+          });
+
+          // Open clicked item if it wasn't active
+          if (!isActive && faqItem) {
+            faqItem.classList.add('active');
+          }
         });
-        
-        element.addEventListener('mouseleave', () => {
-          element.style.transform = 'translateY(0) scale(1)';
+      });
+
+      // Enhanced Contact Method Animations
+      document.querySelectorAll('.contact-method').forEach((method) => {
+        method.addEventListener('mouseenter', () => {
+          if (method instanceof HTMLElement) {
+            method.style.transform = 'translateY(-8px) scale(1.02)';
+          }
         });
-        
-        // Add click animation
-        element.addEventListener('mousedown', () => {
-          element.style.transform = 'translateY(-6px) scale(1.01)';
-        });
-        
-        element.addEventListener('mouseup', () => {
-          element.style.transform = 'translateY(-8px) scale(1.03)';
+
+        method.addEventListener('mouseleave', () => {
+          if (method instanceof HTMLElement) {
+            method.style.transform = 'translateY(0) scale(1)';
+          }
         });
       });
     </script>

@@ -1,0 +1,193 @@
+/* Layout Fixes for Proper Centering and Responsive Typography */
+
+/* Universal Improvements */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Navigation Fixes */
+nav {
+  width: 100%;
+  overflow: hidden;
+}
+
+nav ul {
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+nav a {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  white-space: nowrap;
+}
+
+/* Hero Section Responsive Typography */
+.brand-name {
+  font-size: clamp(3rem, 8vw, 5rem) !important;
+  line-height: 1 !important;
+}
+
+.brand-subtitle {
+  font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+  letter-spacing: clamp(1px, 0.5vw, 3px) !important;
+  line-height: 1.2 !important;
+}
+
+.lead {
+  font-size: clamp(1rem, 3vw, 1.3rem) !important;
+  line-height: 1.4 !important;
+}
+
+/* Service Preview Flexbox Centering */
+.service-preview {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 2rem !important;
+  max-width: 1200px !important;
+  margin: 3rem auto 0 !important;
+  padding: 0 1rem !important;
+}
+
+.service-box {
+  width: 100% !important;
+  max-width: 400px !important;
+  min-width: 300px !important;
+  flex: 0 1 auto !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  word-wrap: break-word !important;
+  hyphens: auto !important;
+}
+
+.service-box h3 {
+  font-size: clamp(1.2rem, 3vw, 1.4rem) !important;
+  line-height: 1.2 !important;
+}
+
+.service-box p {
+  font-size: clamp(0.9rem, 2vw, 1rem) !important;
+  line-height: 1.5 !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Section Typography */
+section h2 {
+  font-size: clamp(2rem, 5vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+section p {
+  font-size: clamp(1rem, 3vw, 1.2rem) !important;
+  line-height: 1.6 !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* CTA Section */
+.cta h2 {
+  font-size: clamp(2rem, 5vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+.cta p {
+  font-size: clamp(1rem, 3vw, 1.25rem) !important;
+  line-height: 1.4 !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .service-preview {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .service-box {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  nav ul {
+    gap: 1rem !important;
+  }
+
+  nav a {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .service-box {
+    max-width: 45% !important;
+    min-width: 300px !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .service-box {
+    flex: 0 1 calc(33.333% - 1.5rem) !important;
+    max-width: 400px !important;
+  }
+}
+
+/* Ensure all sections are centered */
+section {
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+.intro {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 4rem 2rem !important;
+}
+
+.services {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 4rem 2rem !important;
+}
+
+/* Footer if it exists */
+footer {
+  background: #1E1E1E;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}

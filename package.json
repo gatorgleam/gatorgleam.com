@@ -2,13 +2,28 @@
   "name": "gator-gleam",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check"
   },
   "dependencies": {
-    "astro": "^5.12.3"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/vercel": "^8.2.5",
+    "astro": "^5.12.3",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.33.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
