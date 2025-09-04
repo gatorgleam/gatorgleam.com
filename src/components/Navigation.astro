@@ -42,7 +42,7 @@
   <div class="mobile-overlay" id="mobileOverlay"></div>
 </nav>
 
-<style>
+<style is:global>
   nav {
     background: rgba(255, 255, 255, 0.98);
     padding: 0.75rem 2rem;
@@ -316,6 +316,14 @@
       left: 0 !important;
     }
 
+    /* Debug styles to force visibility when testing */
+    .nav-links.active {
+      background: red !important;
+      left: 0 !important;
+      display: flex !important;
+      visibility: visible !important;
+    }
+
     nav ul {
       flex-direction: column;
       gap: 0;
@@ -420,7 +428,11 @@
 
     // Function to close mobile menu
     function closeMobileMenu() {
-      if (navLinks) navLinks.classList.remove('active');
+      if (navLinks) {
+        navLinks.classList.remove('active');
+        // Reset inline styles
+        navLinks.style.left = '-100%';
+      }
       if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
       if (mobileOverlay) mobileOverlay.classList.remove('active');
       body.classList.remove('mobile-menu-open');
@@ -429,7 +441,19 @@
 
     // Function to open mobile menu
     function openMobileMenu() {
-      if (navLinks) navLinks.classList.add('active');
+      if (navLinks) {
+        navLinks.classList.add('active');
+        // Force styles directly as fallback
+        navLinks.style.position = 'fixed';
+        navLinks.style.top = '0';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.height = '100vh';
+        navLinks.style.background = 'rgba(255, 255, 255, 0.98)';
+        navLinks.style.zIndex = '999';
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+      }
       if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
       if (mobileOverlay) mobileOverlay.classList.add('active');
       body.classList.add('mobile-menu-open');
