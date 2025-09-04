@@ -306,11 +306,12 @@
       width: 100%;
       height: 100vh;
       background: rgba(255, 255, 255, 0.95);
-      z-index: 999;
+      z-index: 1100; /* Above fixed navbar (z-index: 1000) */
       flex-direction: column;
       padding: 100px 20px 20px;
       justify-content: flex-start;
       align-items: center;
+      pointer-events: auto;
     }
 
     nav ul {
@@ -322,6 +323,7 @@
       padding: 2rem 0;
       border-radius: 0;
       width: 100%;
+      pointer-events: auto;
     }
 
     nav li {
@@ -342,6 +344,7 @@
       font-weight: 600;
       text-align: left;
       position: relative;
+      pointer-events: auto;
     }
 
     nav a:not(.nav-logo-link):hover {
