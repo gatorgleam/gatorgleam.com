@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bridge CSS variables to Tailwind via utility classes if needed */
+:root {
+  color-scheme: light;
+}
+
+

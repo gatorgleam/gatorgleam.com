@@ -1,9 +1,9 @@
 ---
 import '../styles/shared.css';
-import '../styles/spacing-system.css';
-import '../styles/accessibility.css';
-import '../styles/layout-fixes.css';
+import '../styles/tokens.css';
+import '../styles/tailwind.css';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 const { frontmatter } = Astro.props;
 ---
 
@@ -12,19 +12,19 @@ const { frontmatter } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{frontmatter.title} – Gator Gleam</title>
+    <title>{frontmatter.title} – SeaForth Strategies</title>
     {frontmatter.description && <meta name="description" content={frontmatter.description} />}
     
     <!-- SEO and Open Graph meta tags -->
-    <meta property="og:title" content={`${frontmatter.title} – Gator Gleam`} />
+    <meta property="og:title" content={`${frontmatter.title} – SeaForth Strategies`} />
     {frontmatter.description && <meta property="og:description" content={frontmatter.description} />}
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content="/images/gator-gleam-logo.png" />
+    <meta property="og:image" content="/images/logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${frontmatter.title} – Gator Gleam`} />
+    <meta name="twitter:title" content={`${frontmatter.title} – SeaForth Strategies`} />
     {frontmatter.description && <meta name="twitter:description" content={frontmatter.description} />}
-    <meta name="twitter:image" content="/images/gator-gleam-logo.png" />
+    <meta name="twitter:image" content="/images/logo.png" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -45,7 +45,7 @@ const { frontmatter } = Astro.props;
     
     <!-- Font Awesome -->
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       rel="stylesheet"
     />
     
@@ -54,17 +54,18 @@ const { frontmatter } = Astro.props;
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Gator Gleam Digital Marketing",
-        "url": "https://gator-gleam.vercel.app",
-        "logo": "https://gator-gleam.vercel.app/images/gator-gleam-logo.png",
+        "name": "SeaForth Strategies",
+        "url": "https://seaforthstrategies.com",
+        "logo": "https://seaforthstrategies.com/images/logo.png",
         "description": "Expert digital marketing services including web design, social media management, email marketing, and data analytics to grow your business.",
         "sameAs": [
-          "https://www.instagram.com/gatorgleamagency",
-          "https://www.linkedin.com/company/gator-gleam"
+          "https://www.instagram.com/seaforthstrategies",
+          "https://www.linkedin.com/company/seaforthstrategies"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer service",
+          "email": "contact@seaforthstrategies.com",
           "availableLanguage": "English"
         },
         "service": [
@@ -83,41 +84,9 @@ const { frontmatter } = Astro.props;
             "name": "Email Marketing",
             "description": "Strategic email campaigns that nurture leads and drive conversions"
           }
+        ]
       }
     </script>
-    
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: 'Montserrat', sans-serif;
-        background: #fff;
-        color: #1a1a1a;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-
-      /* Add padding-top to main content to avoid being hidden under fixed header */
-      main {
-        padding-top: 70px; /* Match nav height */
-      }
-
-      /* Responsive padding adjustments */
-      @media (max-width: 768px) {
-        main {
-          padding-top: 65px;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        main {
-          padding-top: 75px;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- Skip to main content link for accessibility -->
@@ -128,5 +97,7 @@ const { frontmatter } = Astro.props;
     <main id="main-content">
       <slot />
     </main>
+
+    <Footer />
   </body>
 </html>

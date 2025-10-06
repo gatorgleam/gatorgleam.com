@@ -1,145 +1,157 @@
 ---
-// Modern Navigation Component with Enhanced Mobile UX
+// Professional, Mobile-First Navigation Component
+// SeaForth Strategies - Coastal, Creative, Tech-Savvy Design
 ---
 
-<nav id="navbar" role="navigation" aria-label="Main navigation">
-  <div class="nav-container">
-    <div class="nav-logo-section">
-      <a href="/" class="nav-logo-link" aria-label="Gator Gleam - Go to homepage">
-        <img src="/images/gator-gleam-logo.png" alt="Gator Gleam Digital Marketing logo" class="nav-logo" loading="eager" />
-      </a>
+<nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__container">
+    <!-- Logo -->
+    <a href="/" class="nav__logo-link" aria-label="SeaForth Strategies – Go to homepage">
+      <img 
+        src="/images/logo.png" 
+        alt="SeaForth Strategies" 
+        class="nav__logo" 
+        loading="eager" 
+        width="200"
+        height="50"
+      />
+    </a>
+
+    <!-- Desktop Navigation Links - Centered -->
+    <ul class="nav__links" id="navLinks" role="menubar">
+      <li role="none"><a role="menuitem" href="/">Home</a></li>
+      <li role="none"><a role="menuitem" href="/about">About</a></li>
+      <li role="none"><a role="menuitem" href="/services">Services</a></li>
+      <li role="none"><a role="menuitem" href="/contact">Contact</a></li>
+    </ul>
+
+    <!-- CTA Button -->
+    <div class="nav__cta">
+        <a 
+          href="https://calendly.com/gatorgleamsmm/30min" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="nav__cta-button"
+        >
+          <span>Get Started</span>
+        </a>
     </div>
 
-    <div class="nav-links" id="navLinks">
-      <ul role="menubar">
-        <li role="menuitem"><a href="/about">About</a></li>
-        <li role="menuitem"><a href="/services">Services</a></li>
-        <li role="menuitem"><a href="/contact">Contact</a></li>
-      </ul>
-      <div class="nav-cta">
-        <a href="/contact" class="btn-primary">Get Started</a>
-      </div>
-    </div>
-
-    <button 
-      class="mobile-menu-toggle" 
-      id="mobileMenuToggle" 
-      aria-label="Toggle mobile navigation menu"
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="nav__toggle"
+      id="navToggle"
+      aria-label="Toggle navigation menu"
       aria-expanded="false"
       aria-controls="navLinks"
       type="button"
     >
-      <span class="sr-only">Menu</span>
-      <span class="hamburger-icon">
+      <span class="nav__toggle-icon">
         <span class="line"></span>
         <span class="line"></span>
         <span class="line"></span>
       </span>
     </button>
   </div>
-  
-  <!-- Mobile menu overlay -->
-  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
 </nav>
 
 <style>
-  nav {
-    background: rgba(255, 255, 255, 0.98);
-    padding: 0.75rem 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.06);
+  /* =============================================================================
+     NAVIGATION STYLES - Mobile-First Design
+     ============================================================================= */
+  
+  .nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    background: rgba(247, 245, 241, 0.98);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 123, 255, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(42, 124, 132, 0.12);
+    box-shadow: 0 2px 20px rgba(42, 124, 132, 0.08);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  nav.scrolled {
-    padding: 0.5rem 2rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
-    background: rgba(255, 255, 255, 0.95);
+  .nav.scrolled {
+    box-shadow: 0 4px 30px rgba(42, 124, 132, 0.15);
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(42, 124, 132, 0.15);
   }
 
-  .nav-container {
+  /* Navigation Container */
+  .nav__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+    min-height: 80px;
     position: relative;
   }
 
-  .nav-logo-section {
+  /* Logo Styling */
+  .nav__logo-link {
     display: flex;
     align-items: center;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    transition: background 0.3s ease;
     z-index: 1001;
   }
 
-  .nav-logo-link {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
-    padding: 0.5rem;
-    border-radius: 12px;
+  .nav__logo-link:hover {
+    background: rgba(42, 124, 132, 0.05);
   }
 
-  .nav-logo-link:hover {
-    transform: translateY(-1px);
-    background: rgba(0, 123, 255, 0.05);
-  }
-
-  .nav-logo {
-    height: 50px;
+  .nav__logo {
+    height: 45px;
     width: auto;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   }
 
-  .nav-logo:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  .nav__logo-link:hover .nav__logo {
+    transform: scale(1.02);
+    filter: drop-shadow(0 3px 6px rgba(42, 124, 132, 0.15));
   }
 
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  nav ul {
+  /* Navigation Links - Centered Pill Design */
+  .nav__links {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
     list-style: none;
     margin: 0;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 50px;
-    padding: 0.5rem 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(42, 124, 132, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 123, 255, 0.1);
+    border: 1px solid rgba(42, 124, 132, 0.12);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  nav li {
+  .nav__links li {
     position: relative;
   }
 
-  nav a {
+  .nav__links a {
     text-decoration: none;
-    color: #1E1E1E;
+    color: #1a1a1a;
     font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.625rem 1.25rem;
     border-radius: 25px;
     position: relative;
     display: flex;
@@ -148,382 +160,359 @@
     overflow: hidden;
   }
 
-  nav a:not(.nav-logo-link):hover {
+  .nav__links a:hover,
+  .nav__links a.active {
     color: white;
-    background: #007BFF;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+    background: linear-gradient(135deg, #2A7C84, #1F5C62);
+    box-shadow: 0 4px 12px rgba(213, 163, 83, 0.35);
   }
 
-  nav a:not(.nav-logo-link)::before {
+  /* CTA Button */
+  .nav__cta {
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+  }
+
+  .nav__cta-button {
+    background: linear-gradient(135deg, #2A7C84, #1F5C62);
+    color: white;
+    text-decoration: none;
+    padding: 0.625rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    box-shadow: 0 4px 15px rgba(42, 124, 132, 0.3);
+    transition: all 0.35s ease;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nav__cta-button::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(135deg, #2A7C84, #D5A353);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  
+  .nav__cta-button:hover::before {
+    opacity: 1;
   }
 
-  nav a:not(.nav-logo-link):hover::before {
-    left: 100%;
+  .nav__cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(213, 163, 83, 0.4);
+  }
+  
+  .nav__cta-button span {
+    position: relative;
+    z-index: 1;
   }
 
-  nav a.active {
-    color: white;
-    background: #007BFF;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.25);
-  }
-
-  .nav-cta {
-    margin-left: 1rem;
-  }
-
-  .nav-cta a {
-    background: linear-gradient(135deg, #007BFF, #0056b3) !important;
-    color: white !important;
-    padding: 0.75rem 1.5rem !important;
-    border-radius: 30px !important;
-    font-weight: 700 !important;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3) !important;
-    border: none !important;
-  }
-
-  .nav-cta a:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4) !important;
-    background: linear-gradient(135deg, #0056b3, #007BFF) !important;
-  }
-
-  .mobile-menu-toggle {
+  /* Mobile Menu Toggle */
+  .nav__toggle {
     display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.75rem;
     border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 1002;
+    transition: background 0.3s ease;
+    z-index: 1001;
   }
 
-  .mobile-menu-toggle:hover {
-    background: rgba(0, 123, 255, 0.1);
+  .nav__toggle:hover {
+    background: rgba(42, 124, 132, 0.08);
   }
 
-  .mobile-menu-toggle:focus {
-    outline: 2px solid #007BFF;
+  .nav__toggle:focus {
+    outline: 2px solid #2A7C84;
     outline-offset: 2px;
   }
 
-  /* Custom hamburger icon */
-  .hamburger-icon {
-    display: flex;
+  .nav__toggle-icon {
+    display: inline-flex;
     flex-direction: column;
     width: 24px;
     height: 18px;
-    position: relative;
+    justify-content: space-between;
   }
 
-  .hamburger-icon .line {
+  .nav__toggle-icon .line {
     width: 100%;
     height: 3px;
-    background-color: #2a2a2a;
+    background: #2a2a2a;
     border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center;
   }
 
-  .hamburger-icon .line:nth-child(1) {
-    margin-bottom: 4px;
+  /* Toggle Icon Animation */
+  .nav__toggle.active .line:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
   }
 
-  .hamburger-icon .line:nth-child(2) {
-    margin-bottom: 4px;
-  }
-
-  /* Animate hamburger to X when active */
-  .mobile-menu-toggle.active .hamburger-icon .line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .mobile-menu-toggle.active .hamburger-icon .line:nth-child(2) {
+  .nav__toggle.active .line:nth-child(2) {
     opacity: 0;
-    transform: scale(0);
+    transform: scaleX(0);
   }
 
-  .mobile-menu-toggle.active .hamburger-icon .line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+  .nav__toggle.active .line:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
   }
 
-  /* Mobile overlay */
-  .mobile-overlay {
-    display: none;
+  /* Overlay for Mobile Menu */
+  .nav__overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
+    z-index: 999;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
-  .mobile-overlay.active {
-    display: block;
+  .nav__overlay.active {
     opacity: 1;
+    visibility: visible;
   }
 
-  /* Mobile Responsive */
+  /* =============================================================================
+     MOBILE RESPONSIVE STYLES
+     ============================================================================= */
   @media (max-width: 768px) {
-    nav {
-      padding: 0.75rem 1rem;
+    .nav__container {
+      padding: 0.75rem 1.25rem;
     }
 
-    .nav-container {
-      position: relative;
+    .nav__logo {
+      height: 35px;
     }
 
-    .nav-logo-section {
-      flex: 1;
-    }
-
-    .nav-logo {
-      height: 40px;
-    }
-
-    .nav-links {
+    /* Mobile Menu Layout */
+    .nav__links {
       display: none;
-    }
-
-    .nav-links.active {
-      display: flex;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
-      background: rgba(255, 255, 255, 0.95);
-      z-index: 1100; /* Above fixed navbar (z-index: 1000) */
-      flex-direction: column;
-      padding: 100px 20px 20px;
-      justify-content: flex-start;
-      align-items: center;
-      pointer-events: auto;
-    }
-
-    nav ul {
-      flex-direction: column;
-      gap: 0;
-      background: transparent;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 0;
       box-shadow: none;
+      padding: 6rem 2rem 2rem;
+      z-index: 1000;
+      flex-direction: column;
+      gap: 1rem;
+      transform: translateX(0);
+      position: fixed;
       border: none;
-      padding: 2rem 0;
-      border-radius: 0;
+    }
+
+    .nav__links.active {
+      display: flex;
+    }
+
+    .nav__links li {
       width: 100%;
-      pointer-events: auto;
-    }
-
-    nav li {
-      width: 100%;
-      border-bottom: 1px solid rgba(0, 123, 255, 0.1);
-    }
-
-    nav li:last-child {
-      border-bottom: none;
-    }
-
-    nav a:not(.nav-logo-link) {
-      padding: 1.5rem 2rem;
-      border-radius: 0;
-      justify-content: flex-start;
-      width: 100%;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-align: left;
-      position: relative;
-      pointer-events: auto;
-    }
-
-    nav a:not(.nav-logo-link):hover {
-      background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
-      color: #007BFF;
-      transform: translateX(10px);
-      box-shadow: none;
-    }
-
-    nav a:not(.nav-logo-link)::after {
-      content: '→';
-      position: absolute;
-      right: 2rem;
       opacity: 0;
-      transition: all 0.3s ease;
+      transform: translateY(20px);
+      animation: slideInMobile 0.4s ease-out forwards;
     }
 
-    nav a:not(.nav-logo-link):hover::after {
-      opacity: 1;
-      right: 1.5rem;
-    }
+    .nav__links li:nth-child(1) { animation-delay: 0.1s; }
+    .nav__links li:nth-child(2) { animation-delay: 0.15s; }
+    .nav__links li:nth-child(3) { animation-delay: 0.2s; }
+    .nav__links li:nth-child(4) { animation-delay: 0.25s; }
 
-    .nav-cta {
-      margin: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(0, 123, 255, 0.1);
-    }
-
-    .nav-cta a {
+    .nav__links a {
+      padding: 1.25rem 2rem;
+      border-radius: 12px;
+      justify-content: center;
       width: 100%;
-      text-align: center;
-      padding: 1.25rem 2rem !important;
-      font-size: 1.1rem !important;
-      border-radius: 12px !important;
+      font-size: 1.125rem;
+      background: rgba(248, 249, 250, 0.5);
     }
 
-    .mobile-menu-toggle {
+    .nav__links a:hover,
+    .nav__links a.active {
+      transform: none;
+      background: linear-gradient(135deg, #2A7C84, #D5A353);
+      box-shadow: 0 4px 12px rgba(213, 163, 83, 0.3);
+    }
+
+    /* Mobile CTA - Inline in Menu */
+    .nav__cta {
+      display: none;
+    }
+
+    .nav__toggle {
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Prevent body scroll when menu is open */
-    body.mobile-menu-open {
-      overflow: hidden;
-      position: fixed;
-      width: 100%;
+    /* Mobile CTA inside nav links */
+    .nav__links::after {
+      content: '';
+      display: block;
+      margin-top: 1.5rem;
+    }
+  }
+
+  /* Tablet Adjustments */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .nav__links a {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .nav__links {
+      gap: 0.25rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  /* =============================================================================
+     ANIMATIONS
+     ============================================================================= */
+  @keyframes slideInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>
 
 <script>
-  // Enhanced mobile navigation functionality
+  // Navigation Functionality
   document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.getElementById('navbar');
+    const nav = document.getElementById('main-nav');
+    const toggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileOverlay = document.getElementById('mobileOverlay');
+    const overlay = document.getElementById('navOverlay');
     const body = document.body;
 
-    if (!navbar || !navLinks || !mobileMenuToggle) return;
+    if (!nav || !toggle || !navLinks || !overlay) return;
 
-    // Scroll effect for navbar
-    window.addEventListener('scroll', function () {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop > 50) {
-        navbar.classList.add('scrolled');
+    // Scroll Effect - Add shadow on scroll
+    function handleScroll() {
+      if (!nav) return;
+      if (window.pageYOffset > 50) {
+        nav.classList.add('scrolled');
       } else {
-        navbar.classList.remove('scrolled');
+        nav.classList.remove('scrolled');
       }
-    });
-
-    // Function to close mobile menu
-    function closeMobileMenu() {
-      if (navLinks) navLinks.classList.remove('active');
-      if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
-      if (mobileOverlay) mobileOverlay.classList.remove('active');
-      body.classList.remove('mobile-menu-open');
-      if (mobileMenuToggle) mobileMenuToggle.setAttribute('aria-expanded', 'false');
     }
 
-    // Function to open mobile menu
-    function openMobileMenu() {
-      if (navLinks) navLinks.classList.add('active');
-      if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
-      if (mobileOverlay) mobileOverlay.classList.add('active');
-      body.classList.add('mobile-menu-open');
-      if (mobileMenuToggle) mobileMenuToggle.setAttribute('aria-expanded', 'true');
-    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
-    // Mobile menu toggle
-    mobileMenuToggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      if (!navLinks) return;
+      const isOpen = navLinks.classList.contains('active');
       
-      if (navLinks.classList.contains('active')) {
-        closeMobileMenu();
+      if (isOpen) {
+        closeMenu();
       } else {
-        openMobileMenu();
+        openMenu();
       }
-    });
-
-    // Close mobile menu when clicking on overlay
-    if (mobileOverlay) {
-      mobileOverlay.addEventListener('click', function () {
-        closeMobileMenu();
-      });
     }
 
-    // Close mobile menu when clicking on a link
+    function openMenu() {
+      if (!navLinks || !overlay || !toggle) return;
+      navLinks.classList.add('active');
+      overlay.classList.add('active');
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.setAttribute('aria-hidden', 'false');
+      body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (!navLinks || !overlay || !toggle) return;
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      body.style.overflow = '';
+    }
+
+    // Toggle button click
+    toggle.addEventListener('click', toggleMenu);
+
+    // Overlay click - close menu
+    overlay.addEventListener('click', closeMenu);
+
+    // Close menu when clicking nav links
     navLinks.addEventListener('click', function (e) {
-      const target = e.target;
-      if (target && target instanceof Element && target.matches('a')) {
-        closeMobileMenu();
+      if (e.target instanceof HTMLAnchorElement) {
+        closeMenu();
       }
     });
 
-    // Close mobile menu when pressing Escape key
+    // Close menu on escape key
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
-        closeMobileMenu();
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        closeMenu();
       }
     });
 
-    // Handle window resize - close menu if switching to desktop view
+    // Close mobile menu on window resize to desktop
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
-        closeMobileMenu();
+      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        closeMenu();
       }
+      updateContentSpacing();
     });
 
-    // Add active class to current page
+    // Highlight active page
     const currentPath = window.location.pathname;
-    const navMenuLinks = navLinks ? navLinks.querySelectorAll('a') : [];
+    const links = navLinks.querySelectorAll('a');
 
-    navMenuLinks.forEach((link) => {
-      const linkPath = link.getAttribute('href');
-      if (linkPath === currentPath || (currentPath === '/' && linkPath === '/')) {
+    links.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href === currentPath || (currentPath === '/' && href === '/')) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       }
     });
+
+    // Update content spacing to prevent navbar overlap
+    function updateContentSpacing() {
+      if (!nav) return;
+      const navHeight = nav.offsetHeight;
+      const main = document.querySelector('main');
+      
+      if (main) {
+        main.style.paddingTop = `${navHeight}px`;
+      } else {
+        // Fallback for pages without main element
+        const firstSection = document.querySelector('section');
+        if (firstSection && firstSection instanceof HTMLElement) {
+          firstSection.style.paddingTop = `${navHeight + 32}px`;
+        }
+      }
+    }
+
+    // Run spacing update on load and resize
+    window.addEventListener('load', updateContentSpacing);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateContentSpacing);
+    } else {
+      updateContentSpacing();
+    }
   });
-
-  // Dynamic Navigation Spacing Script
-  function updateContentSpacing() {
-    const navbar = document.querySelector('#navbar') || document.querySelector('nav');
-    const main = document.querySelector('main');
-    const body = document.body;
-    
-    if (!navbar || !(navbar instanceof HTMLElement)) return;
-    
-    const navHeight = navbar.offsetHeight;
-    
-    // Apply padding to main element if it exists
-    if (main instanceof HTMLElement) {
-      main.style.paddingTop = `${navHeight}px`;
-    } 
-    // Fallback: apply padding to body if no main element
-    else {
-      body.style.paddingTop = `${navHeight}px`;
-    }
-    
-    // Remove hard-coded body padding if main element exists
-    if (main instanceof HTMLElement) {
-      body.style.paddingTop = '0';
-    }
-  }
-
-  // Run on page load
-  window.addEventListener('load', updateContentSpacing);
-  
-  // Run on window resize (responsive)
-  window.addEventListener('resize', updateContentSpacing);
-  
-  // Run immediately in case DOM is already loaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateContentSpacing);
-  } else {
-    updateContentSpacing();
-  }
 </script>

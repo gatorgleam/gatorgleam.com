@@ -1,9 +1,10 @@
 ---
 import '../styles/shared.css';
-import '../styles/spacing-system.css';
+import '../styles/tokens.css';
+import '../styles/tailwind.css';
 import '../styles/service-detail.css';
-import '../styles/layout-fixes.css';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 const { frontmatter } = Astro.props;
 ---
 
@@ -20,45 +21,30 @@ const { frontmatter } = Astro.props;
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <title>{frontmatter.title} – Gator Gleam</title>
+    <title>{frontmatter.title} – SeaForth Strategies</title>
     {frontmatter.description && <meta name="description" content={frontmatter.description} />}
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: 'Montserrat', sans-serif;
-        background: #fff;
-        color: #1a1a1a;
-        line-height: 1.6;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-      }
-
-      /* Service hero will be full height, no need for dynamic padding */
-      .service-hero {
-        /* Full viewport height hero */
-      }
-
-      /* Responsive padding adjustments */
-      @media (min-width: 768px) {
-        .service-hero {
-          /* Full height maintained */
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .service-hero {
-          /* Full height maintained */
-        }
-      }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content={`${frontmatter.title} – SeaForth Strategies`} />
+    {frontmatter.description && <meta property="og:description" content={frontmatter.description} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content="/images/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${frontmatter.title} – SeaForth Strategies`} />
+    {frontmatter.description && <meta name="twitter:description" content={frontmatter.description} />}
+    <meta name="twitter:image" content="/images/logo.png" />
   </head>
   <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <Navigation />
 
+    <!-- Service Hero Section -->
     <div class="service-hero">
       <div class="hero-background">
         <div class="hero-shapes">
@@ -89,25 +75,39 @@ const { frontmatter } = Astro.props;
         <p class="hero-subtitle">{frontmatter.description}</p>
         <div class="hero-cta">
           <a href="#service-details" class="hero-button primary">Learn More</a>
-          <a href="https://calendly.com/abbyjane-gatorgleamagency" target="_blank" rel="noopener noreferrer" class="hero-button secondary">Get Started</a>
+          <a 
+            href="https://calendly.com/gatorgleamsmm/30min" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="hero-button secondary"
+          >
+            Get Started
+          </a>
         </div>
       </div>
     </div>
 
-    <main class="service-content" id="service-details">
+    <!-- Main Service Content -->
+    <main id="main-content" class="service-content" data-section="service-details">
       <slot />
     </main>
 
+    <!-- CTA Section -->
     <section class="cta">
-      <h2>Ready to Get Started?</h2>
-      <p>Let's discuss how we can help achieve your goals.</p>
-      <a
-        href="https://calendly.com/abbyjane-gatorgleamagency"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="cta-button">Schedule a Call</a
-      >
+      <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Let's discuss how we can help achieve your goals.</p>
+        <a
+          href="https://calendly.com/gatorgleamsmm/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-button"
+        >
+          Schedule a Call
+        </a>
+      </div>
     </section>
+    <Footer />
   </body>
 </html>
 
@@ -117,423 +117,70 @@ const { frontmatter } = Astro.props;
     margin: 0;
     padding: 0;
   }
+  
   body {
     font-family: 'Montserrat', sans-serif;
-    background: #fff;
-    color: #1a1a1a;
+    background: var(--color-off-white);
+    color: var(--color-text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
   
-  /* Service Hero Section */
-  .service-hero {
-    position: relative;
-    background: linear-gradient(135deg, #007BFF 0%, #0056b3 50%, #003d82 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    overflow: hidden;
-    padding: 2rem;
-  }
-
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-  .hero-shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .shape {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .shape-1 {
-    width: 200px;
-    height: 200px;
-    top: 10%;
-    left: 10%;
-    animation-delay: 0s;
-  }
-
-  .shape-2 {
-    width: 150px;
-    height: 150px;
-    top: 60%;
-    right: 15%;
-    animation-delay: 2s;
-  }
-
-  .shape-3 {
-    width: 100px;
-    height: 100px;
-    bottom: 20%;
-    left: 20%;
-    animation-delay: 4s;
-  }
-
-  .shape-4 {
-    width: 120px;
-    height: 120px;
-    top: 30%;
-    right: 40%;
-    animation-delay: 1s;
-  }
-
-  .floating-elements {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .floating-icon {
-    position: absolute;
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 2rem;
-    animation: floatUpDown 4s ease-in-out infinite;
-  }
-
-  .floating-icon-1 {
-    top: 20%;
-    right: 20%;
-    animation-delay: 0s;
-  }
-
-  .floating-icon-2 {
-    bottom: 30%;
-    left: 15%;
-    animation-delay: 1.5s;
-  }
-
-  .floating-icon-3 {
-    top: 70%;
-    right: 30%;
-    animation-delay: 3s;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
+  /* Final CTA Section at Bottom */
+  .cta {
+    background: linear-gradient(135deg, rgba(42, 124, 132, 0.05) 0%, rgba(31, 92, 98, 0.08) 100%);
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 6rem 2rem;
+    margin-top: 4rem;
   }
-
-  .service-icon-container {
-    margin-bottom: 2rem;
-    animation: slideDown 1s ease-out forwards;
-  }
-
-  .service-icon {
-    display: inline-block;
-    width: 120px;
-    height: 120px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-  }
-
-  .service-icon:hover {
-    transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.25);
-  }
-
-  .service-icon i {
-    font-size: 3rem;
-    color: white;
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
+  
+  .cta h2 {
+    color: var(--color-teal);
     margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: slideUp 1s ease-out 0.3s forwards;
-    line-height: 1.1;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-
-  .hero-subtitle {
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: slideUp 1s ease-out 0.6s forwards;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.9);
+  
+  .cta p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3rem;
   }
 
-  .hero-cta {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: slideUp 1s ease-out 0.9s forwards;
-  }
-
-  .hero-button {
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+  .cta .cta-button {
     display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    padding: 1.125rem 2.75rem;
+    background: var(--color-teal);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 15px rgba(42, 124, 132, 0.3);
   }
 
-  .hero-button.primary {
-    background: white;
-    color: #007BFF;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  .cta .cta-button:hover {
+    background: var(--color-teal-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(213, 163, 83, 0.4);
+    color: var(--color-white);
   }
-
-  .hero-button.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-    background: #f8f9fa;
-  }
-
-  .hero-button.secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .hero-button.secondary:hover {
-    background: white;
-    color: #007BFF;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-  }
-
-  .service-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-  }
-  .intro-section {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 4rem;
-  }
-  .intro-section p {
-    /* Font size handled by shared.css */
-    color: #555;
-    margin: 1.5rem 0;
-  }
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin: 4rem 0;
-  }
-  .feature-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 123, 255, 0.15);
-  }
-  .feature-icon {
-    /* Font size handled by shared.css */
-    color: #007BFF;
-    margin-bottom: 1rem;
-  }
-  .process-section {
-    margin: 6rem 0;
-    text-align: center;
-  }
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .process-step {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-  }
-  .process-step:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
-  }
-  .step-number {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #007BFF, #0056b3);
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    font-weight: bold;
-  }
-  .benefits-section {
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(0, 86, 179, 0.05));
-    padding: 6rem 2rem;
-    margin: 4rem -2rem;
-    text-align: center;
-  }
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .portfolio-section {
-    padding: 6rem 0;
-    text-align: center;
-  }
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .cta {
-    text-align: center;
-    margin: 6rem 0;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
-    border-radius: 20px;
-  }
-  .cta h2 {
-    /* Font size handled by shared.css */
-    color: #333;
-    margin-bottom: 1.5rem;
-  }
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-  @keyframes floatUpDown {
-    0%, 100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-      transform: translateY(-15px) rotate(5deg);
-    }
-    50% {
-      transform: translateY(-30px) rotate(0deg);
-    }
-    75% {
-      transform: translateY(-15px) rotate(-5deg);
-    }
-  }
-
-  /* Responsive Design */
+  
+  /* Mobile Responsive */
   @media (max-width: 768px) {
-    .service-hero {
-      min-height: 80vh;
-      padding: 1rem;
+    .cta {
+      padding: 4rem 1.5rem;
     }
     
-    .service-icon {
-      width: 80px;
-      height: 80px;
+    .cta h2 {
+      font-size: 1.875rem;
     }
     
-    .service-icon i {
-      font-size: 2rem;
-    }
-    
-    .hero-cta {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .hero-button {
-      width: 100%;
-      max-width: 280px;
-    }
-    
-    .shape {
-      opacity: 0.5;
-    }
-    
-    .floating-icon {
-      font-size: 1.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .service-hero {
-      min-height: 70vh;
-    }
-    
-    .service-icon {
-      width: 60px;
-      height: 60px;
-    }
-    
-    .service-icon i {
-      font-size: 1.5rem;
+    .cta p {
+      font-size: 1.0625rem;
     }
   }
 </style>

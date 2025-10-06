@@ -1,893 +1,767 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/shared.css';
+
+const frontmatter = {
+  title: 'About Us',
+  description: 'Meet the co-founders of SeaForth Strategies. We combine creative marketing strategy with data-driven insights to help small businesses thrive online.',
+};
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>About Abby – Gator Gleam</title>
-    <meta name="description" content="Meet Abby, founder of Gator Gleam. Digital marketing strategist specializing in web design, social media, and data-driven growth solutions." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: 'Montserrat', sans-serif;
-        background: #fff;
-        color: #1a1a1a;
-        line-height: 1.6;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-        /* Ensure proper spacing from navigation */
-        padding-top: 0;
-      }
-
-      .nav-logo {
-        width: auto;
-        transition: transform 0.3s ease;
-      }
-
-      .nav-logo:hover {
-        transform: scale(1.05);
-      }
-
-      .nav-logo-link:hover {
-        transform: none;
-      }
-
-      nav ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        list-style: none;
-        margin: 0;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: #1a1a1a;
-        font-weight: 600;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        padding: 0.5rem 1rem;
-        border-radius: 30px;
-        position: relative;
-      }
-
-      nav a:hover {
-        color: #007bff;
-        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
-      }
-
-      nav a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(to right, #007bff, #0056b3);
-        transition: all 0.3s ease;
-        transform: translateX(-50%);
-      }
-
-      nav a:hover::after {
-        width: 80%;
-      }
-
-      /* Mobile Navigation */
-      @media (max-width: 768px) {
-        nav {
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1rem;
-        }
-
-        .nav-container {
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .nav-logo-link {
-          position: static;
-          margin-bottom: 0.5rem;
-        }
-
-        .nav-logo {
-          height: 35px;
-        }
-
-        nav ul {
-          justify-content: center;
-          gap: 1.5rem;
-        }
-
-        nav a {
-          font-size: 0.9rem;
-          padding: 0.4rem 0.8rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <Navigation />
-
-    <div class="about-header">
-      <div class="header-content">
-        <h1>Meet Abby</h1>
-        <p class="subtitle">Digital Marketing Strategist & Web Designer</p>
+<BaseLayout frontmatter={frontmatter}>
+  <!-- About Hero Section -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-text">WHO WE ARE</span>
+        <div class="gold-divider-small"></div>
       </div>
+      <h1>Meet the Crew Behind SeaForth</h1>
+      <p class="hero-description">
+        We're Abby and Savanna—a creative strategist and a data analyst who joined forces to build something different. A marketing agency that doesn't just talk strategy—we live it, breathe it, and deliver it.
+      </p>
+      <p class="hero-description">
+        Based in San Diego, we help businesses grow smarter with marketing that's equal parts creative and analytical. No fluff. No guesswork. Just results.
+      </p>
     </div>
+  </section>
 
-    <main class="about-content">
-      <section class="hero-section">
-        <div class="hero-content">
-          <div class="about-image-wrapper">
-            <img
-              src="/images/abby-profile.jpg"
-              alt="Abby Jane, Founder and Digital Marketing Strategist at Gator Gleam Digital Marketing Agency"
-              class="profile-image"
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-text">THE TEAM</span>
+        <div class="gold-divider-small"></div>
+      </div>
+      <h2 class="team-headline">The Dynamic Duo</h2>
+      <p class="section-subtitle">Where Creative Vision Meets Analytical Precision</p>
+
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="team-image-wrapper">
+            <img 
+              src="/images/Abby.png" 
+              alt="Abby Lehr, Co-Founder and Chief Creative Officer" 
+              width="560" 
+              height="560" 
+              class="team-image" 
               loading="lazy"
-              width="400"
-              height="400"
             />
           </div>
-          <div class="hero-text">
-            <h2>Hi, I'm Abby! <span class="sparkle">✨</span></h2>
-            <p class="hero-intro">
-              I'm the brain and sparkle behind Gator Gleam Digital Marketing. As a 21-year-old
-              marketer, website designer, and creative strategist, I'm here to help small businesses
-              glow up online.
+          <div class="team-content">
+            <h3>Abby Lehr</h3>
+            <p class="team-role">Co-Founder & Chief Creative Officer (CCO)</p>
+            <p class="team-bio">
+              I'm the creative force behind SeaForth—the one who turns big ideas into bold campaigns. At 22, I've built a career bringing brands to life online with websites that wow, social content that stops the scroll, and ad campaigns that actually convert.
             </p>
-            <p class="mission-text">
-              From stunning websites to scroll-worthy social media and ad campaigns that actually
-              convert, I make digital marketing feel fun, fresh, and totally doable.
+            <p class="team-bio">
+              I believe great marketing should feel effortless, look stunning, and drive real results. That's what I build for every client—digital experiences that don't just exist, they perform.
             </p>
           </div>
-        </div>
-      </section>
+        </article>
 
-      <section class="mission-section">
-        <div class="mission-content">
-          <div class="approach-cards">
-            <div class="approach-card">
-              <span class="highlight">Design with purpose</span>
-            </div>
-            <div class="approach-card">
-              <span class="highlight">Market with intention</span>
-            </div>
-            <div class="approach-card">
-              <span class="highlight">Create with confidence</span>
-            </div>
+        <article class="team-card">
+          <div class="team-image-wrapper">
+            <img 
+              src="/images/Savanna.png" 
+              alt="Savanna Spayd, Co-Founder and Chief Analytics Officer" 
+              width="560" 
+              height="560" 
+              class="team-image" 
+              loading="lazy"
+            />
           </div>
-          <p class="philosophy-text">
-            "I don't do cookie cutter. I design with purpose, market with intention, and bring
-            brands to life in a way that feels aligned, elevated, and uniquely you. Whether you're
-            launching your first business or ready to take things to the next level, I'm here to
-            help you show up online with confidence and results."
-          </p>
-        </div>
-      </section>
+          <div class="team-content">
+            <h3>Savanna Spayd</h3>
+            <p class="team-role">Co-Founder & Chief Analytics Officer (CAO)</p>
+            <p class="team-bio">
+              I'm the analytical backbone of SeaForth—the one who makes sure every campaign is backed by data, optimized for performance, and built to scale. I turn complex metrics into clear insights that drive smarter decisions and measurable growth.
+            </p>
+            <p class="team-bio">
+              Numbers don't lie, and I make sure they tell the story of what's working, what's not, and where your next big opportunity is hiding.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      <section class="values-section">
-        <h3>What Sets Me Apart</h3>
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="icon-wrapper">
-              <i class="fas fa-lightbulb"></i>
-            </div>
-            <h4>Fresh Perspective</h4>
-            <p>Bringing modern solutions and current trends to your digital strategy</p>
-          </div>
-          <div class="value-card">
-            <div class="icon-wrapper">
-              <i class="fas fa-heart"></i>
-            </div>
-            <h4>Personal Touch</h4>
-            <p>Your brand deserves unique attention - no templates or cookie-cutter solutions</p>
-          </div>
-          <div class="value-card">
-            <div class="icon-wrapper">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h4>Results-Driven</h4>
-            <p>Creating beautiful designs that deliver measurable business results</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="brand-promise">
-        <div class="promise-content">
-          <p>
-            "Whether you're launching your first business or ready to take things to the next level,
-            I'm here to help you show up online with confidence and results."
-          </p>
-        </div>
-      </section>
-
-      <section class="expertise-section">
-        <h3>My Expertise</h3>
-        <div class="expertise-grid">
-          <div class="expertise-card">
-            <span class="emoji">🎯</span>
-            <h4>Strategic Marketing</h4>
-            <p>Data-driven campaigns that convert</p>
-          </div>
-          <div class="expertise-card">
-            <span class="emoji">💻</span>
-            <h4>Web Design</h4>
-            <p>Beautiful, functional websites</p>
-          </div>
-          <div class="expertise-card">
-            <span class="emoji">📱</span>
-            <h4>Social Media</h4>
-            <p>Engaging content that connects</p>
-          </div>
-          <div class="expertise-card">
-            <span class="emoji">✨</span>
-            <h4>Brand Strategy</h4>
-            <p>Cohesive digital presence</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="cta-section">
-        <h2>Ready to Make Your Brand Shine?</h2>
-        <p>
-          If you're looking for someone who gets the vision, handles the strategy, and brings the
-          vibes, we might just be a perfect fit 💻📈💖
+  <!-- Our Story Section -->
+  <section class="story-section">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-text">OUR STORY</span>
+        <div class="gold-divider-small"></div>
+      </div>
+      <h2>How We Got Here</h2>
+      <div class="story-content">
+        <p class="story-text">
+          SeaForth Strategies was born from a simple realization: most marketing agencies talk a big game 
+          but fail to deliver results. We saw too many businesses pouring money into campaigns that looked 
+          pretty but didn't perform.
         </p>
-        <a
-          href="https://calendly.com/abbyjane-gatorgleamagency"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cta-button">Schedule a Call</a
-        >
-      </section>
-    </main>
+        <p class="story-text">
+          So we decided to do things differently. We combined Abby's creative vision with Savanna's 
+          analytical precision to create a marketing agency that doesn't just make noise—it makes an impact. 
+          Every strategy we build is rooted in data, every creative decision is intentional, and every 
+          campaign is designed to drive real, measurable growth.
+        </p>
+        <p class="story-text">
+          Based in sunny San Diego, we work with ambitious businesses who are ready to level up. Whether 
+          you're a startup looking to make your mark or an established brand ready to scale, we bring the 
+          perfect blend of creativity and analytics to chart your course to success.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-text">BY THE NUMBERS</span>
+        <div class="gold-divider-small"></div>
+      </div>
+      <h2>Results That Speak Volumes</h2>
+      <p class="stats-intro">Our success is measured by the success of our clients. Here's what we've achieved together.</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="stat-number" data-target="150">0</div>
+          <div class="stat-suffix">%</div>
+          <p class="stat-label">Average ROI Increase</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-suffix">+</div>
+          <p class="stat-label">Happy Clients</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="stat-number" data-target="2.5">0</div>
+          <div class="stat-suffix">M+</div>
+          <p class="stat-label">In Revenue Generated</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="stat-number" data-target="98">0</div>
+          <div class="stat-suffix">%</div>
+          <p class="stat-label">Client Satisfaction Rate</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      body {
-        font-family: 'Montserrat', sans-serif;
-        line-height: 1.6;
-        color: #333;
-      }
+  <!-- Our Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="eyebrow-text">OUR VALUES</span>
+        <div class="gold-divider-small"></div>
+      </div>
+      <h2>What Drives Us</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Results Over Everything</h3>
+          <p>We don't do marketing for the sake of marketing. Every campaign is built to deliver measurable results and real ROI.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Data-Driven Decisions</h3>
+          <p>Gut feelings don't scale. We let the numbers guide our strategy and optimize relentlessly based on performance.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Partnership, Not Transactions</h3>
+          <p>We're not here for one-off projects. We build long-term partnerships and invest in your success like it's our own.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Creative Excellence</h3>
+          <p>Good design is table stakes. We deliver creative work that's bold, memorable, and strategically sound.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      nav {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        backdrop-filter: blur(8px);
-      }
+  
 
-      .nav-logo {
-        height: 60px;
-        width: auto;
-        transition: transform 0.3s ease;
-      }
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Work Together?</h2>
+      <p>Let's build a marketing strategy that actually moves the needle.</p>
+      <a href="/contact" class="cta-button">Let's Talk</a>
+    </div>
+  </section>
+</BaseLayout>
 
-      .nav-logo:hover {
-        transform: scale(1.05);
-      }
+<style>
+  /* =============================================================================
+     ABOUT HERO SECTION
+     ============================================================================= */
+  .about-hero {
+    background: linear-gradient(135deg, #2A7C84 0%, #1F5C62 100%);
+    padding: 8rem 2rem 6rem;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
 
-      .nav-logo-link {
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-      }
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(213, 163, 83, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    z-index: 0;
+    animation: subtleFloat 20s ease-in-out infinite;
+  }
 
-      .nav-logo-link:hover {
-        transform: none;
-      }
+  .about-hero .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-      .nav-spacer {
-        width: 60px; /* Same as logo width to balance layout */
-      }
+  .about-hero .section-eyebrow {
+    margin-bottom: 2rem;
+  }
 
-      nav ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        list-style: none;
-        flex: 1;
-        margin: 0;
-      }
+  .about-hero h1 {
+    color: white;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+    animation: slideUp 1s ease-out;
+  }
 
-      nav a {
-        text-decoration: none;
-        color: #1a1a1a;
-        font-weight: 600;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        padding: 0.5rem 1rem;
-        border-radius: 30px;
-        position: relative;
-      }
+  .hero-description {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+    color: white;
+    opacity: 0.95;
+    animation: fadeIn 1s ease-out 0.3s forwards;
+  }
 
-      nav a:hover {
-        color: #007bff;
-        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
-      }
+  /* =============================================================================
+     TEAM SECTION
+     ============================================================================= */
+  .team-section {
+    padding: 6rem 2rem;
+    background: var(--color-off-white);
+    text-align: center;
+  }
 
-      nav a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(to right, #007bff, #0056b3);
-        transition: all 0.3s ease;
-        transform: translateX(-50%);
-      }
+  .team-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-      nav a:hover::after {
-        width: 80%;
-      }
+  .team-headline {
+    font-size: clamp(3rem, 5vw, 4rem);
+    color: var(--color-teal);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
 
-      .about-header {
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        color: white;
-        padding: 8rem 2rem 4rem;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        margin-top: 0;
-      }
+  .section-subtitle {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    color: var(--color-gold);
+    margin-bottom: 4rem;
+    text-align: center;
+    font-weight: 600;
+    font-style: italic;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-      .about-header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="80" r="0.5" fill="rgba(255,255,255,0.1)"/></svg>');
-        background-size: 200px 200px;
-        animation: sparkleFloat 20s infinite linear;
-      }
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-      .header-content {
-        position: relative;
-        z-index: 2;
-      }
+  @media (min-width: 768px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-      .header-content h1 {
-        font-weight: 700;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        animation: slideUp 1s ease-out forwards;
-        line-height: 1.1;
-        color: white;
-        /* Font size handled by shared.css */
-      }
+  .team-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(42, 124, 132, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-      .header-content .subtitle {
-        opacity: 0.95;
-        font-weight: 400;
-        animation: slideUp 1s ease-out 0.2s forwards;
-        margin-bottom: 0;
-        line-height: 1.4;
-        color: rgba(255, 255, 255, 0.9);
-      }
+  .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(42, 124, 132, 0.12);
+    border-color: rgba(42, 124, 132, 0.3);
+  }
 
-      .about-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 4rem 2rem;
-      }
+  .team-image-wrapper {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(42, 124, 132, 0.15);
+  }
 
-      .hero-section {
-        padding: 4rem 0;
-        background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(0, 86, 179, 0.05));
-      }
+  .team-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
 
-      .hero-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 400px 1fr;
-        gap: 4rem;
-        align-items: center;
-        padding: 0 2rem;
-      }
+  .team-card:hover .team-image {
+    transform: scale(1.05);
+  }
 
-      .about-image-wrapper {
-        position: relative;
-        width: 400px;
-        height: 400px;
-      }
+  .team-content {
+    width: 100%;
+  }
 
-      .profile-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 50% 30%;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 123, 255, 0.15);
-        transition: all 0.3s ease;
-        border: 4px solid rgba(255, 255, 255, 0.3);
-      }
+  .team-card h3 {
+    font-size: 1.875rem;
+    color: #1A1A1A;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
 
-      .profile-image:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 25px 50px rgba(0, 123, 255, 0.2);
-      }
+  .team-role {
+    color: #D5A353;
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
 
-      .hero-text {
-        text-align: left;
-      }
+  .team-bio {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
 
-      .hero-text h2 {
-        /* Font size handled by shared.css */
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        font-weight: 700;
-      }
+  .team-bio:last-child {
+    margin-bottom: 0;
+  }
 
-      .sparkle {
-        display: inline-block;
-        animation: sparkleRotate 2s infinite linear;
-      }
+  /* =============================================================================
+    STORY SECTION
+     ============================================================================= */
+  .story-section {
+    padding: 6rem 2rem;
+    background: white;
+    text-align: center;
+  }
 
-      .hero-intro {
-        /* Font size handled by shared.css */
-        line-height: 1.6;
-        color: #555;
-        margin-bottom: 1.5rem;
-      }
+  .story-section h2 {
+    color: var(--color-teal);
+    margin-bottom: 3rem;
+  }
 
-      .mission-text {
-        /* Font size handled by shared.css */
-        line-height: 1.6;
-        color: #666;
-      }
+  .story-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-      .about-image {
-        width: 400px;
-        margin: 0 auto;
-        perspective: 1000px;
-        opacity: 0;
-        animation: fadeInSlideUp 1s ease-out forwards;
-      }
+  .story-text {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+    text-align: left;
+  }
 
-      .profile-image {
-        width: 400px;
-        height: 400px;
-        object-fit: cover;
-        object-position: 50% 35%; /* This will focus more on your face/upper body */
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 123, 255, 0.15);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        display: block;
-        margin: 0 auto;
-        transform-style: preserve-3d;
-        border: 4px solid rgba(255, 255, 255, 0.2);
-      }
+  .story-text:last-child {
+    margin-bottom: 0;
+  }
 
-      .profile-image:hover {
-        transform: translateY(-10px) rotateY(-5deg);
-        box-shadow: 25px 25px 50px rgba(0, 123, 255, 0.25);
-        border-color: rgba(0, 123, 255, 0.3);
-      }
+  /* =============================================================================
+    STATS SECTION
+    ============================================================================= */
+  .stats-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, rgba(42, 124, 132, 0.05) 0%, rgba(31, 92, 98, 0.08) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-      @keyframes fadeInSlideUp {
-        0% {
-          opacity: 0;
-          transform: translateY(30px) rotateY(10deg);
+  .stats-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(213, 163, 83, 0.12) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .stats-section h2 {
+    color: var(--color-teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .stats-intro {
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.125rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    background: white;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-2xl);
+    padding: 2.25rem 1.75rem;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-teal), var(--color-gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .stat-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .stat-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 0 auto 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-teal), var(--color-teal-dark));
+    color: white;
+    box-shadow: 0 6px 18px rgba(42, 124, 132, 0.25);
+  }
+
+  .stat-number {
+    display: inline-block;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+
+  .stat-suffix {
+    display: inline-block;
+    margin-left: 0.25rem;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 800;
+    color: var(--color-gold);
+  }
+
+  .stat-label {
+    margin-top: 0.5rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+
+  /* =============================================================================
+     VALUES SECTION
+     ============================================================================= */
+  .values-section {
+    padding: 6rem 2rem;
+    background: var(--color-off-white);
+    text-align: center;
+  }
+
+  .values-section h2 {
+    color: var(--color-teal);
+    margin-bottom: 4rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .value-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border-light);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-teal);
+  }
+
+  .value-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--color-teal), var(--color-teal-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .value-card:hover .value-icon {
+    background: linear-gradient(135deg, var(--color-teal), var(--color-gold));
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .value-icon i {
+    font-size: 2rem;
+    color: white;
+  }
+
+  .value-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .value-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Proof section removed */
+
+  /* Mobile tweaks */
+  @media (max-width: 768px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Count up animation (JS hook) */
+  .stat-number[data-animated="true"] { color: var(--color-teal); }
+
+  /* =============================================================================
+     CTA SECTION
+     ============================================================================= */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(42, 124, 132, 0.05) 0%, rgba(31, 92, 98, 0.08) 100%);
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section h2 {
+    color: #2A7C84;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* =============================================================================
+     ANIMATIONS
+     ============================================================================= */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes subtleFloat {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.05);
+    }
+  }
+
+  /* =============================================================================
+     MOBILE RESPONSIVE STYLES
+     ============================================================================= */
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: 6rem 1.5rem 4rem;
+    }
+
+    .team-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+
+    .team-grid {
+      gap: 2.5rem;
+    }
+
+    .team-card {
+      padding: 2rem;
+    }
+
+    .team-image-wrapper {
+      max-width: 250px;
+    }
+
+    .team-card h3 {
+      font-size: 1.5rem;
+    }
+
+    .team-role {
+      font-size: 1rem;
+    }
+
+    .team-bio {
+      font-size: 0.9375rem;
+    }
+
+    .cta-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .cta-section p {
+      font-size: 1.125rem;
+    }
+  }
+</style>
+<script>
+  // Count-up stats animation on intersection
+  document.addEventListener('DOMContentLoaded', () => {
+    const statNumbers = Array.from(document.querySelectorAll('.stat-number'));
+    if (!('IntersectionObserver' in window) || statNumbers.length === 0) return;
+
+    const formatNumber = (value) => {
+      return Intl.NumberFormat('en-US', { maximumFractionDigits: 1 }).format(value);
+    };
+
+    const animateCount = (el) => {
+      const target = parseFloat(el.getAttribute('data-target'));
+      const isInt = Number.isInteger(target);
+      const duration = 1400;
+      const start = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const current = target * progress;
+        el.textContent = isInt ? Math.round(current).toString() : formatNumber(current);
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (el.getAttribute('data-animated') === 'true') return;
+          el.setAttribute('data-animated', 'true');
+          animateCount(el);
         }
-        100% {
-          opacity: 1;
-          transform: translateY(0) rotateY(0);
-        }
-      }
+      });
+    }, { threshold: 0.4 });
 
-      .about-text {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        text-align: center;
-      }
-
-      .about-text h2 {
-        /* Font size handled by shared.css */
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .about-text h3 {
-        /* Font size handled by shared.css */
-        margin-bottom: 1.5rem;
-        color: #007bff;
-      }
-
-      .mission-section {
-        padding: 4rem 0;
-        background: white;
-      }
-
-      .mission-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 0 2rem;
-      }
-
-      .philosophy-text {
-        font-size: 1.4rem;
-        line-height: 1.6;
-        color: #555;
-        font-style: italic;
-        margin-top: 3rem;
-        text-align: center;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .approach-cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        margin: 2rem 0;
-      }
-
-      .approach-card {
-        padding: 2rem;
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        border: 2px solid rgba(0, 123, 255, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .approach-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(0, 123, 255, 0.3);
-        box-shadow: 0 12px 30px rgba(0, 123, 255, 0.15);
-      }
-
-      .highlight {
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        font-weight: 600;
-        font-size: 1.2rem;
-      }
-
-      .values-section {
-        padding: 6rem 0;
-        background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(0, 86, 179, 0.05));
-        text-align: center;
-      }
-
-      .values-section h3 {
-        /* Font size handled by shared.css */
-        margin-bottom: 3rem;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .values-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      .value-card {
-        background: white;
-        padding: 3rem 2rem;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
-        text-align: center;
-      }
-
-      .value-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(0, 123, 255, 0.15);
-      }
-
-      .icon-wrapper {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .value-card:hover .icon-wrapper i {
-        transform: scale(1.1);
-      }
-
-      .icon-wrapper i {
-        font-size: 1.5rem;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        transition: transform 0.3s ease;
-      }
-
-      .value-card h4 {
-        /* Font size handled by shared.css */
-        margin-bottom: 1rem;
-        color: #333;
-      }
-
-      .value-card p {
-        color: #666;
-        line-height: 1.6;
-      }
-
-      .brand-promise {
-        padding: 4rem 0;
-        text-align: center;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 4rem 2rem;
-      }
-
-      .promise-content p {
-        font-size: 1.6rem;
-        line-height: 1.5;
-        color: #444;
-        font-style: italic;
-      }
-
-      .expertise-section {
-        padding: 6rem 0;
-        text-align: center;
-        background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(0, 86, 179, 0.05));
-      }
-
-      .expertise-section h3 {
-        /* Font size handled by shared.css */
-        margin-bottom: 3rem;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .expertise-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      .expertise-card {
-        background: white;
-        padding: 2rem;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
-      }
-
-      .expertise-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(0, 123, 255, 0.15);
-      }
-
-      .emoji {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        display: block;
-      }
-
-      .expertise-card h4 {
-        /* Font size handled by shared.css */
-        margin-bottom: 0.5rem;
-        color: #333;
-      }
-
-      .expertise-card p {
-        color: #666;
-        /* Font size handled by shared.css */
-      }
-
-      .cta-section {
-        text-align: center;
-        padding: 6rem 2rem;
-        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
-        border-radius: 20px;
-        margin-top: 4rem;
-      }
-
-      .cta-section h2 {
-        /* Font size handled by shared.css */
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .cta-button {
-        display: inline-block;
-        padding: 1rem 2.5rem;
-        background: linear-gradient(to right, #007bff, #0056b3);
-        color: white;
-        text-decoration: none;
-        border-radius: 30px;
-        font-weight: 600;
-        margin-top: 2rem;
-        transition: all 0.3s ease;
-      }
-
-      .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
-      }
-
-      @keyframes sparkleRotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes sparkleFloat {
-        from {
-          transform: translateX(-100px);
-        }
-        to {
-          transform: translateX(100vw);
-        }
-      }
-
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 968px) {
-        .hero-content {
-          grid-template-columns: 1fr;
-          text-align: center;
-          gap: 3rem;
-        }
-
-        .about-image-wrapper {
-          margin: 0 auto;
-        }
-
-        .hero-text {
-          text-align: center;
-        }
-
-        .values-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .expertise-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 768px) {
-        nav {
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1rem;
-        }
-
-        .nav-logo {
-          height: 50px;
-        }
-
-        .nav-spacer {
-          display: none;
-        }
-
-        nav ul {
-          justify-content: center;
-          gap: 1.5rem;
-        }
-
-        nav a {
-          font-size: 1rem;
-          padding: 0.5rem 0;
-        }
-
-        .about-header {
-          padding: 6rem 1rem 3rem;
-        }
-
-        .header-content h1 {
-          /* Font size handled by shared.css */
-          margin-bottom: 0.8rem;
-        }
-
-        .header-content .subtitle {
-          /* Font size handled by shared.css */
-        }
-
-        .hero-text h2 {
-          /* Font size handled by shared.css */
-        }
-
-        .approach-cards {
-          grid-template-columns: 1fr;
-        }
-
-        .values-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .expertise-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .cta-section h2 {
-          /* Font size handled by shared.css */
-        }
-      }
-
-      @media (max-width: 480px) {
-        .about-image-wrapper {
-          width: 300px;
-          height: 300px;
-        }
-
-        .expertise-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </body>
-</html>
+    statNumbers.forEach((el) => observer.observe(el));
+  });
+</script>
+</BaseLayout>

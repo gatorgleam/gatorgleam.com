@@ -1,69 +1,72 @@
 ---
-import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/layout/PageHeader.astro';
+import Section from '../../components/layout/Section.astro';
+import Button from '../../components/ui/Button.astro';
 
 const frontmatter = {
   title: 'Social Media Marketing',
   description:
     'Engaging social media strategies that build community and drive brand awareness across all platforms.',
-  icon: 'fas fa-hashtag',
 };
 ---
 
-<ServiceLayout frontmatter={frontmatter}>
-  <div class="service-content">
-    <h2>Social Media That Connects</h2>
-    <p>
-      Build authentic relationships with your audience through strategic social media marketing. We
-      create engaging content, manage your communities, and drive meaningful conversations that turn
-      followers into customers.
-    </p>
+<BaseLayout frontmatter={frontmatter}>
+  <PageHeader>
+    <Fragment slot="title">{frontmatter.title}</Fragment>
+    <Fragment slot="subtitle">{frontmatter.description}</Fragment>
+  </PageHeader>
 
-    <div class="features-section">
-      <h2>Our Social Media Services</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-calendar-alt"></i>
-          </div>
-          <h3>Content Strategy</h3>
-          <p>Strategic content planning that aligns with your brand voice and business objectives.</p>
-        </div>
+  <Section bg="default">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-neutral-950 mb-6">Social Media That Connects</h2>
+      <p class="text-lg text-neutral-600 leading-relaxed">
+        Build authentic relationships with your audience through strategic social media marketing. We
+        create engaging content, manage your communities, and drive meaningful conversations that turn
+        followers into customers.
+      </p>
+    </div>
+  </Section>
 
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Community Management</h3>
-          <p>Active community engagement that builds relationships and drives customer loyalty.</p>
+  <Section bg="panel">
+    <h2 class="text-3xl font-bold text-center text-neutral-950 mb-12">Our Social Media Services</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="group rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-teal">
+        <div class="text-brand-teal text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
+          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>Social Analytics</h3>
-          <p>
-            Track performance and optimize your social media strategy with detailed insights and
-            reporting.
-          </p>
+        <h3 class="text-xl font-bold text-neutral-950 mb-3">Content Strategy</h3>
+        <p class="text-neutral-600 leading-relaxed">Strategic content planning that aligns with your brand voice and business objectives.</p>
+      </div>
+      <div class="group rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-teal">
+        <div class="text-brand-teal text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
+          <i class="fas fa-users" aria-hidden="true"></i>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-camera"></i>
-          </div>
-          <h3>Content Creation</h3>
-          <p>
-            Professional photography, graphics, and video content that captures attention and drives engagement.
-          </p>
+        <h3 class="text-xl font-bold text-neutral-950 mb-3">Community Management</h3>
+        <p class="text-neutral-600 leading-relaxed">Active community engagement that builds relationships and drives customer loyalty.</p>
+      </div>
+      <div class="group rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-teal">
+        <div class="text-brand-teal text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
+          <i class="fas fa-chart-line" aria-hidden="true"></i>
         </div>
+        <h3 class="text-xl font-bold text-neutral-950 mb-3">Social Analytics</h3>
+        <p class="text-neutral-600 leading-relaxed">Track performance and optimize your social media strategy with detailed insights and reporting.</p>
+      </div>
+      <div class="group rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-teal">
+        <div class="text-brand-teal text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
+          <i class="fas fa-camera" aria-hidden="true"></i>
+        </div>
+        <h3 class="text-xl font-bold text-neutral-950 mb-3">Content Creation</h3>
+        <p class="text-neutral-600 leading-relaxed">Professional photography, graphics, and video content that captures attention and drives engagement.</p>
       </div>
     </div>
+  </Section>
 
-    <div class="cta-section">
-      <h3>Ready to grow your social presence?</h3>
-      <p>Let's create a social media strategy that drives results.</p>
-      <a href="/contact" class="cta-button">Boost Your Social Media</a>
+  <Section bg="default" class="text-center">
+    <div class="max-w-2xl mx-auto">
+      <h3 class="text-3xl font-bold text-neutral-950 mb-4">Ready to grow your social presence?</h3>
+      <p class="text-lg text-neutral-600 mb-8">Let's create a social media strategy that drives results.</p>
+      <Button variant="primary" href="/contact" class="text-lg px-8 py-4">Boost Your Social Media</Button>
     </div>
-  </div>
-</ServiceLayout>
+  </Section>
+</BaseLayout>
